@@ -1,0 +1,12 @@
+package(default_visibility = ["//visibility:public"])
+
+java_binary(
+    name = "example",
+    srcs = glob(["src/main/java/**/*.java"]),
+    main_class = "jtpadilla.ocpp.simpleserver.Main",
+    deps = [
+        "@maven//:com_google_inject_guice",
+        "@maven//:eu_chargetime_ocpp_common",
+        "@maven//:eu_chargetime_ocpp_v1_6",
+    ],
+)
