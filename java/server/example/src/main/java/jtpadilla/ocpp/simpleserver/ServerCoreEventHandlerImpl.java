@@ -14,10 +14,9 @@ public class ServerCoreEventHandlerImpl implements ServerCoreEventHandler {
         System.out.println(authorizeRequest);
 
         // ... handle event
-        IdTagInfo idTagInfo = new IdTagInfo();
+        IdTagInfo idTagInfo = new IdTagInfo(AuthorizationStatus.Accepted);
         idTagInfo.setExpiryDate(ZonedDateTime.now());
         idTagInfo.setParentIdTag("test");
-        idTagInfo.setStatus(AuthorizationStatus.Accepted);
 
         return new AuthorizeConfirmation(idTagInfo);    }
 
