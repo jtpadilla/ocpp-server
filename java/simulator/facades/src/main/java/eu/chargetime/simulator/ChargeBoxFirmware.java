@@ -49,4 +49,5 @@ public class ChargeBoxFirmware implements ILockEventHandler, IOutletEventHandler
     public void disconnected() {
         System.out.println("Disconnected");
     }
+
 }
