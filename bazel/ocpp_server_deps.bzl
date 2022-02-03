@@ -1,8 +1,17 @@
 load("@rules_jvm_external//:defs.bzl", "maven_install")
+load("@bazel_tools//tools/build_defs/repo:git.bzl", "git_repository")
 
-def ocpp_server_deps():
+def ocpp_server_git_repo():
+    git_repository(
+        name = "io_grpc_grpc_java",
+        remote = "https://github.com/grpc/grpc-java.git",
+        tag = "v1.41.0",
+        verbose = False,
+    )
+
+def ocpp_server_deps(IO_GRPC_GRPC_JAVA_ARTIFACTS, IO_GRPC_GRPC_JAVA_OVERRIDE_TARGETS):
     maven_install(
-        artifacts = [
+        artifacts = IO_GRPC_GRPC_JAVA_ARTIFACTS + [
             "com.google.inject:guice:5.0.1",
             #"eu.chargetime.ocpp:v1_6:1.0.1",
             #"eu.chargetime.ocpp:common:1.0",
@@ -14,6 +23,7 @@ def ocpp_server_deps():
             "org.slf4j:slf4j-jdk14:2.0.0-alpha1",
         ],
         generate_compat_repositories = True,
+        override_targets = IO_GRPC_GRPC_JAVA_OVERRIDE_TARGETS,
         repositories = [
             "https://repo.maven.apache.org/maven2/",
             "https://mvnrepository.com/",

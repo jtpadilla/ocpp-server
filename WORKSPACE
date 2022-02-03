@@ -1,4 +1,4 @@
-workspace(name = "com_speedycontrol_ocpp")
+workspace(name = "ocpp_server")
 
 RULES_JVM_EXTERNAL_TAG = "4.2"
 
@@ -13,6 +13,25 @@ http_archive(
     url = "https://github.com/bazelbuild/rules_jvm_external/archive/%s.zip" % RULES_JVM_EXTERNAL_TAG,
 )
 
-load("//bazel:ocpp_server_deps.bzl", "ocpp_server_deps")
+load("//bazel:ocpp_server_deps.bzl", "ocpp_server_git_repo", "ocpp_server_deps")
 
-ocpp_server_deps()
+ocpp_server_git_repo()
+
+load("@io_grpc_grpc_java//:repositories.bzl", "IO_GRPC_GRPC_JAVA_ARTIFACTS")
+load("@io_grpc_grpc_java//:repositories.bzl", "IO_GRPC_GRPC_JAVA_OVERRIDE_TARGETS")
+
+ocpp_server_deps(IO_GRPC_GRPC_JAVA_ARTIFACTS, IO_GRPC_GRPC_JAVA_OVERRIDE_TARGETS)
+
+load("@maven//:compat.bzl", "compat_repositories")
+
+compat_repositories()
+
+load("@io_grpc_grpc_java//:repositories.bzl", "grpc_java_repositories")
+
+grpc_java_repositories()
+
+load("@com_google_protobuf//:protobuf_deps.bzl", "protobuf_deps")
+
+protobuf_deps()
+
+

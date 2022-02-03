@@ -1,0 +1,24 @@
+
+syntax = "proto3";
+
+import "google/protobuf/timestamp.proto";
+
+option java_multiple_files = true;
+option java_package = "joanpadilla.ocpp.common.domain";
+option java_outer_classname = "OcppCommonProto";
+
+package ocpp.common;
+
+enum DurationUnit {
+	DAYS = 0;
+	HOURS = 1;
+	MINUTES  = 2;
+	SECONDS  = 3;
+	MILLISECONDS = 4;
+}
+
+message ExpirationMsg {
+	google.protobuf.Timestamp local_date_time = 1;
+	string zone_id = 2;
+}
+

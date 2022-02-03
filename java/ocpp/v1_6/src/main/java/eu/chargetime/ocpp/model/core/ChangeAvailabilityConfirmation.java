@@ -42,12 +42,6 @@ public class ChangeAvailabilityConfirmation implements Confirmation {
   private AvailabilityStatus status;
 
   /**
-   * @deprecated use {@link #ChangeAvailabilityConfirmation(AvailabilityStatus)} to be sure to set
-   *     required fields
-   */
-  public ChangeAvailabilityConfirmation() {}
-
-  /**
    * Handle required fields.
    *
    * @param status the {@link AvailabilityStatus}, see {@link #setStatus(AvailabilityStatus)}
