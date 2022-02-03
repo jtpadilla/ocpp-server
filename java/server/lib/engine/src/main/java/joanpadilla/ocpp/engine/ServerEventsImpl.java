@@ -1,4 +1,4 @@
-package joanpadilla.ocpp.simpleserver;
+package joanpadilla.ocpp.engine;
 
 import eu.chargetime.ocpp.ServerEvents;
 import eu.chargetime.ocpp.model.SessionInformation;

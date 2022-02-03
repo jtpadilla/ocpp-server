@@ -1,9 +1,11 @@
-package joanpadilla.ocpp.simpleserver;
+package joanpadilla.ocpp.server.simple;
 
 import eu.chargetime.ocpp.JSONServer;
 import eu.chargetime.ocpp.ServerEvents;
 import eu.chargetime.ocpp.feature.profile.ServerCoreEventHandler;
 import eu.chargetime.ocpp.feature.profile.ServerCoreProfile;
+import joanpadilla.ocpp.engine.ServerCoreEventHandlerImpl;
+import joanpadilla.ocpp.engine.ServerEventsImpl;
 
 public class Main {
 
