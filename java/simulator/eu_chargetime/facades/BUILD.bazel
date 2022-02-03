@@ -4,10 +4,10 @@ java_library(
     name = "facades",
     srcs = glob(["src/main/java/**/*.java"]),
     exports = [
-        "//java/simulator/ocpp",
+        "//java/simulator/eu_chargetime/ocpp",
     ],
     deps = [
-        "//java/simulator/hardware",
-        "//java/simulator/ocpp",
+        "//java/simulator/eu_chargetime/hardware",
+        "//java/simulator/eu_chargetime/ocpp",
     ],
 )
