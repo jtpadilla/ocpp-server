@@ -10,6 +10,6 @@ java_binary(
     ],
     deps = [
         "@maven//:org_slf4j_slf4j_api",
-        "//java/server/lib/engine",
+        "//java/core/engine",
     ],
 )
