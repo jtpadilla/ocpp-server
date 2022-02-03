@@ -1,0 +1,14 @@
+package(default_visibility = ["//visibility:public"])
+
+java_library(
+    name = "ocpp",
+    srcs = glob(["src/main/java/**/*.java"]),
+    exports = [
+        "//java/ocpp/v1_6",
+        "//java/simulator/software",
+    ],
+    deps = [
+        "//java/ocpp/v1_6",
+        "//java/simulator/software",
+    ],
+)

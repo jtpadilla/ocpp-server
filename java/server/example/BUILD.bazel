@@ -6,7 +6,8 @@ java_binary(
     main_class = "jtpadilla.ocpp.simpleserver.Main",
     deps = [
         "@maven//:com_google_inject_guice",
-        "@maven//:eu_chargetime_ocpp_common",
-        "@maven//:eu_chargetime_ocpp_v1_6",
+        "//java/ocpp/v1_6",
+        #"@maven//:eu_chargetime_ocpp_common",
+        #"@maven//:eu_chargetime_ocpp_v1_6",
     ],
 )

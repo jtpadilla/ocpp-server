@@ -4,8 +4,8 @@ def speedycontrol_ocpp_deps():
     maven_install(
         artifacts = [
             "com.google.inject:guice:5.0.1",
-            "eu.chargetime.ocpp:v1_6:1.0.1",
-            "eu.chargetime.ocpp:common:1.0",
+            #"eu.chargetime.ocpp:v1_6:1.0.1",
+            #"eu.chargetime.ocpp:common:1.0",
             "javax.xml.bind:jaxb-api:2.1",
             "org.slf4j:slf4j-api:1.7.25",
             "javax.xml.soap:javax.xml.soap-api:1.4.0",
