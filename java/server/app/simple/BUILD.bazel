@@ -9,6 +9,7 @@ java_binary(
         "@maven//:org_slf4j_slf4j_jdk14",
     ],
     deps = [
+        "@maven//:org_slf4j_slf4j_api",
         "//java/server/lib/engine",
     ],
 )
