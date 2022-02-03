@@ -1,4 +1,4 @@
 package joanpadilla.ocpp.model;
 
-public class Void {
+public class Popo {
 }

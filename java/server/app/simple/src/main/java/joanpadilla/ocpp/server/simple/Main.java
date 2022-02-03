@@ -1,5 +1,6 @@
 package joanpadilla.ocpp.server.simple;
 
+import joanpadilla.ocpp.engine.EngineProviders;
 import joanpadilla.ocpp.engine.OcppEngine;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -20,8 +21,11 @@ public class Main {
 
         try {
 
+            // Engine provider pare este servidor
+            EngineProviders providers = new SimpleProvider();
+
             // Se lanzan el servidor
-            OcppEngine.start();
+            OcppEngine.start(providers);
 
             // Se espera una senyal de parada para detener en servidor.
             Runtime.getRuntime().addShutdownHook(new Thread() {
