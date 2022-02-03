@@ -32,8 +32,8 @@ import eu.chargetime.simulator.software.ocpp.OCPPClient;
 
 public class ChargeBox {
 
-    private ILock lock;
-    private IOutlet outlet;
+    private final ILock lock;
+    private final IOutlet outlet;
 
     public final LockCommand lockCommand;
     public final UnlockCommand unlockCommand;

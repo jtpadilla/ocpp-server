@@ -34,7 +34,7 @@ import java.util.UUID;
 
 public class TimeoutSessionDecorator implements ISession {
 
-  private TimeoutTimer timeoutTimer;
+  private final TimeoutTimer timeoutTimer;
   private final ISession session;
 
   /** Handles required injections. */

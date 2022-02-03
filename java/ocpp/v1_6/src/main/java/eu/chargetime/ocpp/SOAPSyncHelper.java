@@ -36,7 +36,7 @@ import org.w3c.dom.NodeList;
 public abstract class SOAPSyncHelper {
   private static final Logger logger = LoggerFactory.getLogger(SOAPSyncHelper.class);
 
-  private HashMap<String, CompletableFuture<SOAPMessage>> promises;
+  private final HashMap<String, CompletableFuture<SOAPMessage>> promises;
 
   public SOAPSyncHelper() {
     promises = new HashMap<>();

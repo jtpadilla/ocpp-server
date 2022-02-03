@@ -37,8 +37,8 @@ public class WebServiceReceiver extends SOAPSyncHelper implements Receiver {
 
   private RadioEvents events;
   private SOAPConnection soapConnection;
-  private String url;
-  private WebServiceReceiverEvents receiverEvents;
+  private final String url;
+  private final WebServiceReceiverEvents receiverEvents;
   private boolean connected;
 
   public WebServiceReceiver(String url, WebServiceReceiverEvents receiverEvents) {

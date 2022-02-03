@@ -43,7 +43,7 @@ public class Queue {
 
   public static final int REQUEST_QUEUE_INITIAL_CAPACITY = 1000;
 
-  private Map<String, Request> requestQueue;
+  private final Map<String, Request> requestQueue;
 
   public Queue() {
     requestQueue = new ConcurrentHashMap<>(REQUEST_QUEUE_INITIAL_CAPACITY);

@@ -37,8 +37,8 @@ import org.slf4j.LoggerFactory;
 public class WSHttpHandler implements HttpHandler {
   private static final Logger logger = LoggerFactory.getLogger(WSHttpHandler.class);
 
-  private String wsdlResourceName;
-  private WSHttpHandlerEvents events;
+  private final String wsdlResourceName;
+  private final WSHttpHandlerEvents events;
 
   public WSHttpHandler(String wsdlResourceName, WSHttpHandlerEvents events) {
     this.wsdlResourceName = wsdlResourceName;

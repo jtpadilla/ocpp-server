@@ -42,7 +42,7 @@ import org.java_websocket.server.DefaultSSLWebSocketServerFactory;
  */
 public final class CustomSSLWebSocketServerFactory extends DefaultSSLWebSocketServerFactory {
 
-  private List<String> ciphers;
+  private final List<String> ciphers;
 
   public CustomSSLWebSocketServerFactory(SSLContext sslContext, List<String> ciphers) {
     super(sslContext);

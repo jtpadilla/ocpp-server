@@ -35,8 +35,8 @@ import java.util.UUID;
 
 public class ServerCoreProfile implements Profile {
 
-  private ServerCoreEventHandler handler;
-  private HashSet<Feature> features;
+  private final ServerCoreEventHandler handler;
+  private final HashSet<Feature> features;
 
   public ServerCoreProfile(ServerCoreEventHandler handler) {
     this.handler = handler;

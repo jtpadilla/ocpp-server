@@ -41,7 +41,7 @@ import java.util.UUID;
 
 public class ServerReservationProfile implements Profile {
 
-  private HashSet<Feature> features;
+  private final HashSet<Feature> features;
 
   public ServerReservationProfile() {
     features = new HashSet<>();

@@ -41,7 +41,7 @@ SOFTWARE.
 
 public class ServerRemoteTriggerProfile implements Profile {
 
-  private HashSet<Feature> features;
+  private final HashSet<Feature> features;
 
   public ServerRemoteTriggerProfile() {
 

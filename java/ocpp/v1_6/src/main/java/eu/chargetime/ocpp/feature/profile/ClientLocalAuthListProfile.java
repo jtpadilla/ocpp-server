@@ -40,8 +40,8 @@ import java.util.UUID;
 
 public class ClientLocalAuthListProfile implements Profile {
 
-  private ClientLocalAuthListEventHandler eventHandler;
-  private ArrayList<Feature> featureList;
+  private final ClientLocalAuthListEventHandler eventHandler;
+  private final ArrayList<Feature> featureList;
 
   public ClientLocalAuthListProfile(ClientLocalAuthListEventHandler handler) {
     eventHandler = handler;

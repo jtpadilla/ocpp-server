@@ -18,7 +18,8 @@ public class ServerCoreEventHandlerImpl implements ServerCoreEventHandler {
         idTagInfo.setExpiryDate(ZonedDateTime.now());
         idTagInfo.setParentIdTag("test");
 
-        return new AuthorizeConfirmation(idTagInfo);    }
+        return new AuthorizeConfirmation(idTagInfo);
+    }
 
     @Override
     public BootNotificationConfirmation handleBootNotificationRequest(UUID uuid, BootNotificationRequest bootNotificationRequest) {

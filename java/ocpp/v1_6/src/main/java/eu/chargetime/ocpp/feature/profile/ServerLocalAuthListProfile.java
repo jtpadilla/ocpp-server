@@ -38,7 +38,7 @@ import java.util.UUID;
 
 public class ServerLocalAuthListProfile implements Profile {
 
-  private HashSet<Feature> featureList;
+  private final HashSet<Feature> featureList;
 
   public ServerLocalAuthListProfile() {
     featureList = new HashSet<>();

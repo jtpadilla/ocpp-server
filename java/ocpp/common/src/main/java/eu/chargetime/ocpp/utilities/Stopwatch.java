@@ -36,7 +36,7 @@ public final class Stopwatch {
   private boolean isRunning;
   private long elapsedNanos;
   private long startTick;
-  private Ticker ticker;
+  private final Ticker ticker;
 
   private Stopwatch() {
     this(System::nanoTime);
@@ -154,7 +154,6 @@ public final class Stopwatch {
       throw new IllegalStateException(
           "This stopwatch is already " + (isRunning ? "running" : "stopped"));
     }
-    ;
   }
 
   private static TimeUnit chooseUnit(long nanos) {

@@ -44,7 +44,7 @@ import java.util.UUID;
 public class ClientCoreProfile implements Profile {
 
   ArrayList<Feature> features;
-  private ClientCoreEventHandler eventHandler;
+  private final ClientCoreEventHandler eventHandler;
 
   /**
    * Set up handler for client core feature requests.

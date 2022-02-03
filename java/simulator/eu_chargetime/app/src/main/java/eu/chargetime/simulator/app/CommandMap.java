@@ -32,7 +32,7 @@ import java.util.HashMap;
 
 public class CommandMap implements ICommandRepository {
 
-    private HashMap<String, ICommand> repository;
+    private final HashMap<String, ICommand> repository;
 
     public CommandMap() {
         repository = new HashMap<>();

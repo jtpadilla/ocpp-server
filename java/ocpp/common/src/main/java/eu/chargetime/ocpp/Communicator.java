@@ -45,7 +45,7 @@ public abstract class Communicator {
 
   private RetryRunner retryRunner;
   protected Radio radio;
-  private ArrayDeque<Object> transactionQueue;
+  private final ArrayDeque<Object> transactionQueue;
   private CommunicatorEvents events;
   private boolean failedFlag;
 

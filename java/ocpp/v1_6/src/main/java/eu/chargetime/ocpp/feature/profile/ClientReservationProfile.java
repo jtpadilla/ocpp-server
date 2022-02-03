@@ -41,8 +41,8 @@ import java.util.UUID;
 
 public class ClientReservationProfile implements Profile {
 
-  private HashSet<Feature> features;
-  private ClientReservationEventHandler eventHandler;
+  private final HashSet<Feature> features;
+  private final ClientReservationEventHandler eventHandler;
 
   public ClientReservationProfile(ClientReservationEventHandler eventHandler) {
     this.eventHandler = eventHandler;

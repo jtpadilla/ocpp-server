@@ -43,7 +43,7 @@ import org.slf4j.LoggerFactory;
 public class Client {
   private static final Logger logger = LoggerFactory.getLogger(Client.class);
 
-  private ISession session;
+  private final ISession session;
   private final IFeatureRepository featureRepository;
   private final IPromiseRepository promiseRepository;
 

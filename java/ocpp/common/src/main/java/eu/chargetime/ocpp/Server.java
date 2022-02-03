@@ -48,8 +48,8 @@ public class Server {
 
   public static final int INITIAL_SESSIONS_NUMBER = 1000;
 
-  private Map<UUID, ISession> sessions;
-  private Listener listener;
+  private final Map<UUID, ISession> sessions;
+  private final Listener listener;
   private final IFeatureRepository featureRepository;
   private final IPromiseRepository promiseRepository;
 

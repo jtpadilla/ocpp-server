@@ -31,7 +31,7 @@ import java.util.Scanner;
 public class ConsoleReader implements Runnable {
 
     private final IInputHandler handler;
-    private String prompt;
+    private final String prompt;
 
     public ConsoleReader(IInputHandler handler) {
         this.handler = handler;

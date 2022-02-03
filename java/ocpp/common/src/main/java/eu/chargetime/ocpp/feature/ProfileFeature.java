@@ -32,7 +32,7 @@ import java.util.UUID;
 
 public abstract class ProfileFeature implements Feature {
 
-  private Profile profile;
+  private final Profile profile;
 
   /**
    * Creates link back to the {@link Profile}.

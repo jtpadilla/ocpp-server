@@ -73,6 +73,6 @@ public final class TestUtilities {
 
     for (Object current : array) output.append(String.format("%s%s", delimiter, current));
 
-    return output.toString().substring(1);
+    return output.substring(1);
   }
 }

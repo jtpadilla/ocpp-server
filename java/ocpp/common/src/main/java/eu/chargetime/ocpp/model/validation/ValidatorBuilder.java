@@ -30,7 +30,7 @@ import java.util.ArrayList;
 public class ValidatorBuilder {
 
   private boolean required = false;
-  private ArrayList<IValidationRule> rules;
+  private final ArrayList<IValidationRule> rules;
 
   public ValidatorBuilder() {
     rules = new ArrayList<>();

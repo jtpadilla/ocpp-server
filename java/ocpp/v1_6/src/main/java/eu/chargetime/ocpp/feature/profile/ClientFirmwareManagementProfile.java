@@ -35,8 +35,8 @@ import java.util.UUID;
 
 public class ClientFirmwareManagementProfile implements Profile {
 
-  private HashSet<Feature> features;
-  private ClientFirmwareManagementEventHandler eventHandler;
+  private final HashSet<Feature> features;
+  private final ClientFirmwareManagementEventHandler eventHandler;
 
   public ClientFirmwareManagementProfile(ClientFirmwareManagementEventHandler eventHandler) {
     this.eventHandler = eventHandler;

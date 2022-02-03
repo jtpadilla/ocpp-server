@@ -96,7 +96,7 @@ public class WebServiceListener implements Listener {
     }
 
     private void removeChargebox(String identity) {
-      if (chargeBoxes.containsKey(identity)) chargeBoxes.remove(identity);
+      chargeBoxes.remove(identity);
     }
 
     @Override

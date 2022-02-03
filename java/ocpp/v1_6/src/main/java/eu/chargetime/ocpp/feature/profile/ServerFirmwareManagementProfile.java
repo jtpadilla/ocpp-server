@@ -40,7 +40,7 @@ import java.util.UUID;
 public class ServerFirmwareManagementProfile implements Profile {
 
   private final ServerFirmwareManagementEventHandler eventHandler;
-  private HashSet<Feature> features;
+  private final HashSet<Feature> features;
 
   public ServerFirmwareManagementProfile(ServerFirmwareManagementEventHandler eventHandler) {
     this.eventHandler = eventHandler;

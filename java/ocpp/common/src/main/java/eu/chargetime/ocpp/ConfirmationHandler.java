@@ -31,9 +31,9 @@ import java.util.function.BiConsumer;
 
 class ConfirmationHandler implements BiConsumer<Confirmation, Throwable> {
 
-  private String id;
-  private String action;
-  private Communicator communicator;
+  private final String id;
+  private final String action;
+  private final Communicator communicator;
 
   public ConfirmationHandler(String id, String action, Communicator communicator) {
 

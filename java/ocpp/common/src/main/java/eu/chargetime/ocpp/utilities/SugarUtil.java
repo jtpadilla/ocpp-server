@@ -65,6 +65,6 @@ public class SugarUtil {
     } catch (SOAPException | IOException e) {
       return "";
     }
-    return new String(out.toByteArray());
+    return out.toString();
   }
 }

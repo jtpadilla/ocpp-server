@@ -84,5 +84,6 @@ public class SessionInformation {
       this.SOAPtoURL = toUrl;
       return this;
     }
+
   }
 }

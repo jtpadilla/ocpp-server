@@ -47,13 +47,13 @@ public class SOAPClient implements IClientAPI {
   private static final String WSDL_CHARGE_POINT =
       "eu/chargetime/ocpp/OCPP_ChargePointService_1.6.wsdl";
 
-  private Client client;
-  private SOAPCommunicator communicator;
-  private WebServiceTransmitter transmitter;
-  private URL callback;
+  private final Client client;
+  private final SOAPCommunicator communicator;
+  private final WebServiceTransmitter transmitter;
+  private final URL callback;
   private HttpServer server;
   private ExecutorService threadPool;
-  private FeatureRepository featureRepository;
+  private final FeatureRepository featureRepository;
 
   /**
    * The core feature profile is required. The client will use the information taken from the

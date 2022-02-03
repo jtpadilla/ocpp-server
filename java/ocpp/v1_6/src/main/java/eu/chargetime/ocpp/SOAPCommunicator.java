@@ -313,9 +313,9 @@ public class SOAPCommunicator extends Communicator {
         SOAPFault fault = soapMessage.getSOAPBody().getFault();
 
         if (fault.getFaultSubcodes().hasNext())
-          message.setErrorCode(((QName) fault.getFaultSubcodes().next()).getLocalPart());
+          message.setErrorCode(fault.getFaultSubcodes().next().getLocalPart());
         if (fault.getFaultReasonTexts().hasNext())
-          message.setErrorDescription(fault.getFaultReasonTexts().next().toString());
+          message.setErrorDescription(fault.getFaultReasonTexts().next());
 
       } catch (SOAPException e) {
         logger.error("Parse error", e);

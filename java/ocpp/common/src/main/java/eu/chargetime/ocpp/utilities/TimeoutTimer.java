@@ -32,7 +32,7 @@ public class TimeoutTimer extends Timer {
 
   private TimerTask timerTask;
   private long timeout;
-  private TimeoutHandler handler;
+  private final TimeoutHandler handler;
 
   public TimeoutTimer(long timeout, TimeoutHandler handler) {
     this.timeout = timeout;

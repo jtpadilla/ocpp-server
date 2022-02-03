@@ -66,7 +66,7 @@ public class JSONCommunicator extends Communicator {
   private static final String DATE_FORMAT_WITH_MS = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'";
   private static final int DATE_FORMAT_WITH_MS_LENGTH = 24;
 
-  private boolean hasLongDateFormat = false;
+  private final boolean hasLongDateFormat = false;
 
   /**
    * Handle required injections.
@@ -148,7 +148,7 @@ public class JSONCommunicator extends Communicator {
           .setErrorDescription(array.get(INDEX_CALLERROR_DESCRIPTION).getAsString());
       ((CallErrorMessage) message).setRawPayload(array.get(INDEX_CALLERROR_PAYLOAD).toString());
     } else {
-      logger.error("Unknown message type of message: {}", json.toString());
+      logger.error("Unknown message type of message: {}", json);
       throw new IllegalArgumentException("Unknown message type");
     }
 

@@ -34,7 +34,7 @@ import java.util.concurrent.ConcurrentHashMap;
 
 public class PromiseRepository implements IPromiseRepository {
 
-  private Map<String, CompletableFuture<Confirmation>> promises;
+  private final Map<String, CompletableFuture<Confirmation>> promises;
 
   public PromiseRepository() {
     this.promises = new ConcurrentHashMap<>();

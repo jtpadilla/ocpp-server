@@ -41,7 +41,7 @@ import java.util.UUID;
 
 public class ServerSmartChargingProfile implements Profile {
 
-  private HashSet<Feature> features;
+  private final HashSet<Feature> features;
 
   public ServerSmartChargingProfile() {
     features = new HashSet<>();

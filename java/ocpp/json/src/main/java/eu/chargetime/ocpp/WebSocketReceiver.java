@@ -28,7 +28,7 @@ package eu.chargetime.ocpp;
 public class WebSocketReceiver implements Receiver {
 
   private RadioEvents handler;
-  private WebSocketReceiverEvents receiverEvents;
+  private final WebSocketReceiverEvents receiverEvents;
 
   public WebSocketReceiver(WebSocketReceiverEvents handler) {
     receiverEvents = handler;
