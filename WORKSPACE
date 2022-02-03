@@ -13,6 +13,6 @@ http_archive(
     url = "https://github.com/bazelbuild/rules_jvm_external/archive/%s.zip" % RULES_JVM_EXTERNAL_TAG,
 )
 
-load("//bazel:speedycontrol_ocpp_deps.bzl", "speedycontrol_ocpp_deps")
+load("//bazel:ocpp_server_deps.bzl", "ocpp_server_deps")
 
-speedycontrol_ocpp_deps()
+ocpp_server_deps()

@@ -1,1 +1,1 @@
-exports_files(["speedycontrol_ocpp_deps.bzl"])
+exports_files(["ocpp_server_deps.bzl"])
