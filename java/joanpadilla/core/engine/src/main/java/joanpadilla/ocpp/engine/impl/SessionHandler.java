@@ -32,7 +32,7 @@ public class SessionHandler implements ServerCoreEventHandler {
             return confirmation;
 
         } catch (SessionException e) {
-            logger.error(String.format("Imposible procesar AUTHORIZE.REQ porque no existe la sesion de la solicitud: %s", StringUtil.toString(uuid)));
+            logger.error(String.format("Imposible procesar AUTHORIZE.REQ: %s", e.getMessage()));
             return new BootNotificationConfirmation(
                     ZonedDateTime.now(),
                     60,
@@ -54,7 +54,7 @@ public class SessionHandler implements ServerCoreEventHandler {
             return confirmation;
 
         } catch (SessionException e) {
-            logger.error(String.format("Imposible procesar HEARTBEAT.REQ porque no existe la sesion de la solicitud: %s", StringUtil.toString(uuid)));
+            logger.error(String.format("Imposible procesar HEARTBEAT.REQ: %s", e.getMessage()));
             return new HeartbeatConfirmation(ZonedDateTime.now());
 
         }
@@ -72,7 +72,7 @@ public class SessionHandler implements ServerCoreEventHandler {
             return confirmation;
 
         } catch (SessionException e) {
-            logger.error(String.format("Imposible procesar AUTHORIZE.REQ porque no existe la sesion de la solicitud: %s", StringUtil.toString(uuid)));
+            logger.error(String.format("Imposible procesar AUTHORIZE.REQ: %s", e.getMessage()));
             return new AuthorizeConfirmation(new IdTagInfo(AuthorizationStatus.Invalid));
 
         }
@@ -90,7 +90,7 @@ public class SessionHandler implements ServerCoreEventHandler {
             return confirmation;
 
         } catch (SessionException e) {
-            logger.error(String.format("Imposible procesar START-TRANSACTION.REQ porque no existe la sesion de la solicitud: %s", StringUtil.toString(uuid)));
+            logger.error(String.format("Imposible procesar START-TRANSACTION.REQ: %s", e.getMessage()));
             return new StartTransactionConfirmation(buildInvalidTagInfo(), -1);
 
         }
@@ -108,7 +108,7 @@ public class SessionHandler implements ServerCoreEventHandler {
             return confirmation;
 
         } catch (SessionException e) {
-            logger.error(String.format("Imposible procesar STOP-TRANSACTION.REQ porque no existe la sesion de la solicitud: %s", StringUtil.toString(uuid)));
+            logger.error(String.format("Imposible procesar STOP-TRANSACTION.REQ: %s", e.getMessage()));
             StopTransactionConfirmation confirmation = new StopTransactionConfirmation();
             confirmation.setIdTagInfo(buildInvalidTagInfo());
             return confirmation;
