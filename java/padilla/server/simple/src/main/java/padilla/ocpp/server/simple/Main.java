@@ -20,7 +20,7 @@ public class Main {
         try {
 
             // Engine provider pare este servidor
-            EngineConnector providers = new SimpleProvider();
+            EngineConnector providers = new SimpleConnector();
 
             // Se lanzan el servidor
             OcppEngine.start(providers);

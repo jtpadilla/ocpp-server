@@ -4,7 +4,7 @@ import padilla.ocpp.engine.EngineConnector;
 
 import java.util.List;
 
-public class SimpleProvider implements EngineConnector {
+public class SimpleConnector implements EngineConnector {
 
     @Override
     public List<String> getIdTagList() {
