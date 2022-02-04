@@ -3,6 +3,7 @@ package joanpadilla.ocpp.engine.impl.session;
 import eu.chargetime.ocpp.model.core.*;
 
 import java.time.ZonedDateTime;
+import java.util.UUID;
 
 public class SessionInstance {
 
@@ -61,23 +62,27 @@ public class SessionInstance {
         return confirmation;
     }
 
+    public DataTransferConfirmation dataTransfer(DataTransferRequest dataTransferRequest) {
+        touch();
+        return new DataTransferConfirmation(DataTransferStatus.Accepted);
+    }
+
+    public MeterValuesConfirmation meterValues(MeterValuesRequest meterValuesRequest) {
+        touch();
+        return new MeterValuesConfirmation();
+    }
+
+    public StatusNotificationConfirmation statusNotification(StatusNotificationRequest statusNotificationRequest) {
+        touch();
+        return new StatusNotificationConfirmation();
+    }
+
     //////////////////////////////////////////////////
     // Utilidades privadas
     //////////////////////////////////////////////////
 
     private void touch() {
         this.touched = ZonedDateTime.now();
-    }
-
-    synchronized public IdTagInfo setIdTag(String idTag) {
-
-        this.touched = ZonedDateTime.now();
-        this.idTag = idTag;
-
-        IdTagInfo idTagInfo = new IdTagInfo(AuthorizationStatus.Accepted);
-        idTagInfo.setExpiryDate(touched);
-        return idTagInfo;
-
     }
 
     private IdTagInfo buildTagInfo() {

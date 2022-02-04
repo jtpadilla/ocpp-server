@@ -46,13 +46,6 @@ public class DataTransferConfirmation implements Confirmation {
   private String data;
 
   /**
-   * @deprecated use {@link #DataTransferConfirmation(DataTransferStatus)} to be sure to set
-   *     required fields
-   */
-  @Deprecated
-  public DataTransferConfirmation() {}
-
-  /**
    * Handle required fields.
    *
    * @param status the {@link DataTransferStatus}, see {@link #setStatus(DataTransferStatus)}
