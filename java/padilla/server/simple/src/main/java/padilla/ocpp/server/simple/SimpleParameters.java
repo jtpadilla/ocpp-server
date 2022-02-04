@@ -9,4 +9,9 @@ public class SimpleParameters implements OcppParameters {
         return 30;
     }
 
+    @Override
+    public boolean isHeartbeatLogDisabled() {
+        return false;
+    }
+
 }

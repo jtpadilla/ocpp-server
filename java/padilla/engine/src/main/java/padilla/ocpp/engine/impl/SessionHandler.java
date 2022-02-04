@@ -4,6 +4,7 @@ import eu.chargetime.ocpp.feature.profile.ServerCoreEventHandler;
 import eu.chargetime.ocpp.model.core.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import padilla.ocpp.engine.OcppParameters;
 import padilla.ocpp.engine.impl.session.SessionDirectory;
 import padilla.ocpp.engine.impl.session.SessionException;
 import padilla.ocpp.engine.impl.session.StringUtil;
@@ -16,9 +17,11 @@ public class SessionHandler implements ServerCoreEventHandler {
     final static private Logger logger = LoggerFactory.getLogger(SessionHandler.class);
     final static private boolean DISABLE_HEARTBEAT_LOG = true;
 
+    final private OcppParameters parameters;
     final private SessionDirectory sessionDirectory;
 
-    public SessionHandler(SessionDirectory sessionDirectory) {
+    public SessionHandler(OcppParameters parameters, SessionDirectory sessionDirectory) {
+        this.parameters = parameters;
         this.sessionDirectory = sessionDirectory;
     }
 
@@ -47,12 +50,12 @@ public class SessionHandler implements ServerCoreEventHandler {
     @Override
     public HeartbeatConfirmation handleHeartbeatRequest(UUID uuid, HeartbeatRequest request) {
 
-        if (!DISABLE_HEARTBEAT_LOG)
+        if (!parameters.isHeartbeatLogDisabled())
             logger.info(String.format("HEARTBEAT.REQ => %s, %s", StringUtil.toString(uuid), request.toString()));
 
         try {
             HeartbeatConfirmation confirmation = sessionDirectory.getSession(uuid).heartbeat(request);
-            if (!DISABLE_HEARTBEAT_LOG)
+            if (!parameters.isHeartbeatLogDisabled())
                 logger.info(String.format("HEARTBEAT.CONF => %s, %s", StringUtil.toString(uuid), confirmation.toString()));
             return confirmation;
 

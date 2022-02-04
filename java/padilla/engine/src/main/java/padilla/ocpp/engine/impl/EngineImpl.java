@@ -25,7 +25,7 @@ public class EngineImpl {
         Services services = new Services(parameters, connector);
         SessionDirectory sessionDirectory = new SessionDirectory(services);
 
-        serverCoreEventHandler = new SessionHandler(sessionDirectory);
+        serverCoreEventHandler = new SessionHandler(parameters, sessionDirectory);
         serverCoreProfile = new ServerCoreProfile(serverCoreEventHandler);
         jsonServer = new JSONServer(serverCoreProfile);
         serverEvents = new ServerHandler(sessionDirectory);
