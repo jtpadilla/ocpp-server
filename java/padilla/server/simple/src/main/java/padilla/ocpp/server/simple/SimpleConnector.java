@@ -1,10 +1,10 @@
 package padilla.ocpp.server.simple;
 
-import padilla.ocpp.engine.EngineConnector;
+import padilla.ocpp.engine.OcppConnector;
 
 import java.util.List;
 
-public class SimpleConnector implements EngineConnector {
+public class SimpleConnector implements OcppConnector {
 
     @Override
     public List<String> getIdTagList() {

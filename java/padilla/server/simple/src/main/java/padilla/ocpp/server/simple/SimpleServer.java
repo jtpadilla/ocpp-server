@@ -2,14 +2,15 @@ package padilla.ocpp.server.simple;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import padilla.ocpp.engine.EngineConnector;
+import padilla.ocpp.engine.OcppConnector;
 import padilla.ocpp.engine.OcppEngine;
+import padilla.ocpp.engine.OcppParameters;
 
-public class Main {
+public class SimpleServer {
 
     final static private String APP_NAME = "Simple OCPPServer";
 
-    final static private Logger logger = LoggerFactory.getLogger(Main.class);
+    final static private Logger logger = LoggerFactory.getLogger(SimpleServer.class);
 
     static private boolean finishServer = false;
 
@@ -19,11 +20,12 @@ public class Main {
 
         try {
 
-            // Engine provider pare este servidor
-            EngineConnector providers = new SimpleConnector();
+            // Parametros y conector
+            OcppParameters parameters = new SimpleParameters();
+            OcppConnector connector = new SimpleConnector();
 
             // Se lanzan el servidor
-            OcppEngine.start(providers);
+            OcppEngine.start(parameters, connector);
 
             // Se espera una senyal de parada para detener en servidor.
             Runtime.getRuntime().addShutdownHook(new Thread() {
@@ -36,9 +38,9 @@ public class Main {
                     OcppEngine.stop();
 
                     // Se despierta el thread principal para que evalue si tiene que parar
-                    synchronized (Main.class) {
+                    synchronized (SimpleServer.class) {
                         finishServer = true;
-                        Main.class.notifyAll();
+                        SimpleServer.class.notifyAll();
                     }
 
                 }
@@ -49,9 +51,9 @@ public class Main {
             logger.info("El servidor se ha iniciado correctamente y ahora el thread principal entra en espera...");
 
             while (!finishServer) {
-                synchronized (Main.class) {
+                synchronized (SimpleServer.class) {
                     try {
-                        Main.class.wait(5000);
+                        SimpleServer.class.wait(5000);
                     } catch (InterruptedException e) {
                     }
                 }

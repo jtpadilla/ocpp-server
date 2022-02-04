@@ -1,15 +1,19 @@
 package padilla.ocpp.engine.impl.session;
 
-import padilla.ocpp.engine.EngineConnector;
+import padilla.ocpp.engine.OcppConnector;
+import padilla.ocpp.engine.OcppParameters;
 
 import java.util.concurrent.atomic.AtomicInteger;
 
 public class Services {
 
-    final private EngineConnector connector;
+    final private OcppParameters parameters;
+    final private OcppConnector connector;
     final private AtomicInteger transactionCounter;
 
-    public Services(EngineConnector connector) {
+
+    public Services(OcppParameters parameters, OcppConnector connector) {
+        this.parameters = parameters;
         this.connector = connector;
         transactionCounter = new AtomicInteger(0);
     }
@@ -20,6 +24,10 @@ public class Services {
 
     public boolean validIdTag(String idTag) {
         return connector.getIdTagList().stream().anyMatch(idTag::equals);
+    }
+
+    public int getHeartbeatSeconds() {
+        return parameters.getHeartbeatSeconds();
     }
 
 }

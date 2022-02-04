@@ -32,7 +32,11 @@ public class SessionInstance {
 
     synchronized public BootNotificationConfirmation boot(BootNotificationRequest request) {
         touch();
-        return new BootNotificationConfirmation(ZonedDateTime.now(), 10, RegistrationStatus.Accepted);
+        return new BootNotificationConfirmation(
+                ZonedDateTime.now(),
+                services.getHeartbeatSeconds(),
+                RegistrationStatus.Accepted
+        );
     }
 
     public HeartbeatConfirmation heartbeat(HeartbeatRequest heartbeatRequest) {

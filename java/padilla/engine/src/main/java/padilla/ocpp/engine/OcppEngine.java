@@ -6,12 +6,12 @@ public class OcppEngine {
 
     static private EngineImpl impl = null;
 
-    static public void start(EngineConnector providers) {
+    static public void start(OcppParameters parameters, OcppConnector connector) {
         synchronized (OcppEngine.class) {
             if (impl != null) {
                 throw new IllegalStateException("El engine ya esta en marcha!");
             }
-            impl = EngineImpl.instantiate(providers);
+            impl = EngineImpl.instantiate(parameters, connector);
         }
     }
 

@@ -2,6 +2,6 @@ package padilla.ocpp.engine;
 
 import java.util.List;
 
-public interface EngineConnector {
+public interface OcppConnector {
     List<String> getIdTagList();
 }

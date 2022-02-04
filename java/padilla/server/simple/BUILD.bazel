@@ -3,7 +3,7 @@ package(default_visibility = ["//visibility:public"])
 java_binary(
     name = "example",
     srcs = glob(["src/main/java/**/*.java"]),
-    main_class = "padilla.ocpp.server.simple.Main",
+    main_class = "padilla.ocpp.server.simple.SimpleServer",
     runtime_deps = [
         "@maven//:org_slf4j_slf4j_api",
         "@maven//:org_slf4j_slf4j_jdk14",
