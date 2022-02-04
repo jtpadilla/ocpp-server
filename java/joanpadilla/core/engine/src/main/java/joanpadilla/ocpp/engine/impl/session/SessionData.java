@@ -35,7 +35,7 @@ public class SessionData {
     }
 
     public void clean() {
-
+        this.idTag = null;
     }
 
 }
