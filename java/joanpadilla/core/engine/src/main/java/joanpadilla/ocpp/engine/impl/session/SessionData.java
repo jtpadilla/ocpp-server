@@ -18,9 +18,15 @@ public class SessionData {
         this.touched = creation;
     }
 
-    synchronized public void setIdTag(String idTag) {
+    synchronized public IdTagInfo setIdTag(String idTag) {
+
         this.touched = ZonedDateTime.now();
         this.idTag = idTag;
+
+        IdTagInfo idTagInfo = new IdTagInfo(AuthorizationStatus.Accepted);
+        idTagInfo.setExpiryDate(touched);
+        return idTagInfo;
+
     }
 
     public Optional<IdTagInfo> buildTagInfo() {

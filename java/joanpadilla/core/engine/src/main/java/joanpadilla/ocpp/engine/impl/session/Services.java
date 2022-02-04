@@ -1,11 +1,17 @@
 package joanpadilla.ocpp.engine.impl.session;
 
 import eu.chargetime.ocpp.model.core.*;
+import joanpadilla.ocpp.engine.impl.SessionHandler;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.time.ZonedDateTime;
+import java.util.Optional;
 import java.util.UUID;
 
 public class Services {
+
+    final static private Logger logger = LoggerFactory.getLogger(Services.class);
 
     final private SessionDirectory sessionDirectory;
 
@@ -14,9 +20,18 @@ public class Services {
     }
 
     public AuthorizeConfirmation authorize(UUID uuid, AuthorizeRequest authorizeRequest) {
-        IdTagInfo idTagInfo = new IdTagInfo(AuthorizationStatus.Accepted);
-        idTagInfo.setExpiryDate(ZonedDateTime.now());
-        return new AuthorizeConfirmation(idTagInfo);
+        try {
+            SessionData sessionData = sessionDirectory.getSession(uuid);
+            // Se le asigna el Tag a la sesion
+            // TODO: De momento no se tiene en cuenta si ya estaba informado el tag..
+            IdTagInfo idTagInfo = sessionData.setIdTag(authorizeRequest.getIdTag());
+            return new AuthorizeConfirmation(idTagInfo);
+        } catch (SessionException e) {
+            logger.error(String.format("Imposible procesar AUTHORIZE.REQ porque no existe la sesion referenaciada: %s", e.getMessage()));
+            IdTagInfo idTagInfo = new IdTagInfo(AuthorizationStatus.Invalid);
+            idTagInfo.setExpiryDate(ZonedDateTime.now());
+            return new AuthorizeConfirmation(idTagInfo);
+        }
     }
 
     public BootNotificationConfirmation boot(UUID uuid, BootNotificationRequest bootNotificationRequest) {
