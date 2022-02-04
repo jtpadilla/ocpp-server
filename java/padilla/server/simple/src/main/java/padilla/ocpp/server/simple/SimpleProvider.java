@@ -1,4 +1,4 @@
-package joanpadilla.ocpp.server.simple;
+package padilla.ocpp.server.simple;
 
 import padilla.ocpp.engine.EngineProviders;
 

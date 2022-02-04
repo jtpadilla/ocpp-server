@@ -4,8 +4,8 @@ syntax = "proto3";
 import "google/protobuf/timestamp.proto";
 
 option java_multiple_files = true;
-option java_package = "joanpadilla.ocpp.common.domain";
-option java_outer_classname = "OcppCommonProto";
+option java_package = "padilla.ocpp.domain";
+option java_outer_classname = "OcppDomainProto";
 
 package ocpp.common;
 
