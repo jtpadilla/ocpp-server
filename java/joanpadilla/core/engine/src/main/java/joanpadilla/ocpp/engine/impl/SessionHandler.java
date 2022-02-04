@@ -22,12 +22,12 @@ public class SessionHandler implements ServerCoreEventHandler {
     }
 
     @Override
-    public BootNotificationConfirmation handleBootNotificationRequest(UUID uuid, BootNotificationRequest bootNotificationRequest) {
+    public BootNotificationConfirmation handleBootNotificationRequest(UUID uuid, BootNotificationRequest request) {
 
-        logger.info(String.format("BOOT-NOTIFICATION.REQ => %s, %s", StringUtil.toString(uuid), bootNotificationRequest.toString()));
+        logger.info(String.format("BOOT-NOTIFICATION.REQ => %s, %s", StringUtil.toString(uuid), request.toString()));
 
         try {
-            BootNotificationConfirmation confirmation = sessionDirectory.getSession(uuid).boot(bootNotificationRequest);
+            BootNotificationConfirmation confirmation = sessionDirectory.getSession(uuid).boot(request);
             logger.info(String.format("BOOT-NOTIFICATION.CONF => %s, %s", StringUtil.toString(uuid), confirmation.toString()));
             return confirmation;
 
@@ -44,12 +44,12 @@ public class SessionHandler implements ServerCoreEventHandler {
     }
 
     @Override
-    public HeartbeatConfirmation handleHeartbeatRequest(UUID uuid, HeartbeatRequest heartbeatRequest) {
+    public HeartbeatConfirmation handleHeartbeatRequest(UUID uuid, HeartbeatRequest request) {
 
-        logger.info(String.format("HEARTBEAT.REQ => %s, %s", StringUtil.toString(uuid), heartbeatRequest.toString()));
+        logger.info(String.format("HEARTBEAT.REQ => %s, %s", StringUtil.toString(uuid), request.toString()));
 
         try {
-            HeartbeatConfirmation confirmation = sessionDirectory.getSession(uuid).heartbeat(heartbeatRequest);
+            HeartbeatConfirmation confirmation = sessionDirectory.getSession(uuid).heartbeat(request);
             logger.info(String.format("HEARTBEAT.CONF => %s, %s", StringUtil.toString(uuid), confirmation.toString()));
             return confirmation;
 
@@ -62,12 +62,12 @@ public class SessionHandler implements ServerCoreEventHandler {
     }
 
     @Override
-    public AuthorizeConfirmation handleAuthorizeRequest(UUID uuid, AuthorizeRequest authorizeRequest) {
+    public AuthorizeConfirmation handleAuthorizeRequest(UUID uuid, AuthorizeRequest request) {
 
-        logger.info(String.format("AUTHORIZE.REQ => %s, %s", StringUtil.toString(uuid), authorizeRequest.toString()));
+        logger.info(String.format("AUTHORIZE.REQ => %s, %s", StringUtil.toString(uuid), request.toString()));
 
         try {
-            AuthorizeConfirmation confirmation = sessionDirectory.getSession(uuid).authorize(authorizeRequest);
+            AuthorizeConfirmation confirmation = sessionDirectory.getSession(uuid).authorize(request);
             logger.info(String.format("AUTHORIZE.CONF => %s, %s", StringUtil.toString(uuid), confirmation.toString()));
             return confirmation;
 
@@ -80,12 +80,12 @@ public class SessionHandler implements ServerCoreEventHandler {
     }
 
     @Override
-    public StartTransactionConfirmation handleStartTransactionRequest(UUID uuid, StartTransactionRequest startTransactionRequest) {
+    public StartTransactionConfirmation handleStartTransactionRequest(UUID uuid, StartTransactionRequest request) {
 
-        logger.info(String.format("START-TRANSACTION.REQ => %s, %s", StringUtil.toString(uuid), startTransactionRequest.toString()));
+        logger.info(String.format("START-TRANSACTION.REQ => %s, %s", StringUtil.toString(uuid), request.toString()));
 
         try {
-            StartTransactionConfirmation confirmation = sessionDirectory.getSession(uuid).startTransaction(startTransactionRequest);
+            StartTransactionConfirmation confirmation = sessionDirectory.getSession(uuid).startTransaction(request);
             logger.info(String.format("START-TRANSACTION.CONF => %s, %s", StringUtil.toString(uuid), confirmation.toString()));
             return confirmation;
 
@@ -98,12 +98,12 @@ public class SessionHandler implements ServerCoreEventHandler {
     }
 
     @Override
-    public StopTransactionConfirmation handleStopTransactionRequest(UUID uuid, StopTransactionRequest stopTransactionRequest) {
+    public StopTransactionConfirmation handleStopTransactionRequest(UUID uuid, StopTransactionRequest request) {
 
-        logger.info(String.format("STOP-TRANSACTION.REQ => %s, %s", StringUtil.toString(uuid), stopTransactionRequest.toString()));
+        logger.info(String.format("STOP-TRANSACTION.REQ => %s, %s", StringUtil.toString(uuid), request.toString()));
 
         try {
-            StopTransactionConfirmation confirmation = sessionDirectory.getSession(uuid).stopTransaction(stopTransactionRequest);
+            StopTransactionConfirmation confirmation = sessionDirectory.getSession(uuid).stopTransaction(request);
             logger.info(String.format("STOP-TRANSACTION.CONF => %s, %s", StringUtil.toString(uuid), confirmation.toString()));
             return confirmation;
 
@@ -118,21 +118,57 @@ public class SessionHandler implements ServerCoreEventHandler {
     }
 
     @Override
-    public DataTransferConfirmation handleDataTransferRequest(UUID uuid, DataTransferRequest dataTransferRequest) {
-        System.out.println(dataTransferRequest);
-        return null; // returning null means unsupported feature
+    public DataTransferConfirmation handleDataTransferRequest(UUID uuid, DataTransferRequest request) {
+
+        logger.info(String.format("DATA-TRANSFER.REQ => %s, %s", StringUtil.toString(uuid), request.toString()));
+
+        try {
+            DataTransferConfirmation confirmation = sessionDirectory.getSession(uuid).dataTransfer(request);
+            logger.info(String.format("DATA-TRANSFER.CONF => %s, %s", StringUtil.toString(uuid), confirmation.toString()));
+            return confirmation;
+
+        } catch (SessionException e) {
+            logger.error(String.format("Imposible procesar DATA-TRANSFER.REQ: %s", e.getMessage()));
+            return new DataTransferConfirmation(DataTransferStatus.Rejected);
+
+        }
+
     }
 
     @Override
-    public MeterValuesConfirmation handleMeterValuesRequest(UUID uuid, MeterValuesRequest meterValuesRequest) {
-        System.out.println(meterValuesRequest);
-        return null; // returning null means unsupported feature
+    public MeterValuesConfirmation handleMeterValuesRequest(UUID uuid, MeterValuesRequest request) {
+
+        logger.info(String.format("METER-VALUES.REQ => %s, %s", StringUtil.toString(uuid), request.toString()));
+
+        try {
+            MeterValuesConfirmation confirmation = sessionDirectory.getSession(uuid).meterValues(request);
+            logger.info(String.format("METER-VALUES.CONF => %s, %s", StringUtil.toString(uuid), confirmation.toString()));
+            return confirmation;
+
+        } catch (SessionException e) {
+            logger.error(String.format("Imposible procesar METER-VALUES.REQ: %s", e.getMessage()));
+            return new MeterValuesConfirmation();
+
+        }
+
     }
 
     @Override
-    public StatusNotificationConfirmation handleStatusNotificationRequest(UUID uuid, StatusNotificationRequest statusNotificationRequest) {
-        System.out.println(statusNotificationRequest);
-        return null; // returning null means unsupported feature
+    public StatusNotificationConfirmation handleStatusNotificationRequest(UUID uuid, StatusNotificationRequest request) {
+
+        logger.info(String.format("STATUS-NOTIFICATION.REQ => %s, %s", StringUtil.toString(uuid), request.toString()));
+
+        try {
+            StatusNotificationConfirmation confirmation = sessionDirectory.getSession(uuid).statusNotification(request);
+            logger.info(String.format("STATUS-NOTIFICATION.CONF => %s, %s", StringUtil.toString(uuid), confirmation.toString()));
+            return confirmation;
+
+        } catch (SessionException e) {
+            logger.error(String.format("Imposible procesar STATUS-NOTIFICATION.REQ: %s", e.getMessage()));
+            return new StatusNotificationConfirmation();
+
+        }
+
     }
 
     /////////////////////////////////////////

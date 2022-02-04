@@ -47,7 +47,7 @@ public class SessionInstance {
         return new AuthorizeConfirmation(buildTagInfo());
     }
 
-    public StartTransactionConfirmation startTransaction(StartTransactionRequest startTransactionRequest) {
+    public StartTransactionConfirmation startTransaction(StartTransactionRequest request) {
         touch();
         return new StartTransactionConfirmation(
                 buildTagInfo(),
@@ -55,14 +55,14 @@ public class SessionInstance {
         );
     }
 
-    public StopTransactionConfirmation stopTransaction(StopTransactionRequest stopTransactionRequest) {
+    public StopTransactionConfirmation stopTransaction(StopTransactionRequest request) {
         touch();
         StopTransactionConfirmation confirmation = new StopTransactionConfirmation();
         confirmation.setIdTagInfo(buildTagInfo());
         return confirmation;
     }
 
-    public DataTransferConfirmation dataTransfer(DataTransferRequest dataTransferRequest) {
+    public DataTransferConfirmation dataTransfer(DataTransferRequest request) {
         touch();
         return new DataTransferConfirmation(DataTransferStatus.Accepted);
     }
@@ -72,7 +72,7 @@ public class SessionInstance {
         return new MeterValuesConfirmation();
     }
 
-    public StatusNotificationConfirmation statusNotification(StatusNotificationRequest statusNotificationRequest) {
+    public StatusNotificationConfirmation statusNotification(StatusNotificationRequest request) {
         touch();
         return new StatusNotificationConfirmation();
     }
