@@ -52,13 +52,6 @@ public class BootNotificationConfirmation implements Confirmation {
   private RegistrationStatus status;
 
   /**
-   * @deprecated use {@link #BootNotificationConfirmation(ZonedDateTime, Integer,
-   *     RegistrationStatus)} to be sure to set required fields
-   */
-  @Deprecated
-  public BootNotificationConfirmation() {}
-
-  /**
    * Handle required fields.
    *
    * @param currentTime Central System’s current time, see {@link #setCurrentTime(ZonedDateTime)}

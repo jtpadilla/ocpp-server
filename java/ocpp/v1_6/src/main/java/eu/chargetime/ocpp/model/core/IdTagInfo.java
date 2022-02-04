@@ -50,10 +50,6 @@ public class IdTagInfo implements Validatable {
   private String parentIdTag;
   private AuthorizationStatus status;
 
-  /** @deprecated use {@link #IdTagInfo(AuthorizationStatus)} to be sure to set required fields */
-  @Deprecated
-  public IdTagInfo() {}
-
   /**
    * Handle required fields.
    *

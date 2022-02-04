@@ -45,13 +45,6 @@ public class StartTransactionConfirmation implements Confirmation {
   private Integer transactionId;
 
   /**
-   * @deprecated use {@link #StartTransactionConfirmation(IdTagInfo, Integer)} to be sure to set
-   *     required fields
-   */
-  @Deprecated
-  public StartTransactionConfirmation() {}
-
-  /**
    * Handle required fields.
    *
    * @param idTagInfo the {@link IdTagInfo}, see {@link #setIdTagInfo(IdTagInfo)}

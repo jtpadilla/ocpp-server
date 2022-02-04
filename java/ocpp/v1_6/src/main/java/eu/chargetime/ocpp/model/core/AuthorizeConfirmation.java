@@ -41,10 +41,6 @@ public class AuthorizeConfirmation implements Confirmation {
 
   private IdTagInfo idTagInfo;
 
-  /** @deprecated use {@link #AuthorizeConfirmation(IdTagInfo)} to be sure to set required fields */
-  @Deprecated
-  public AuthorizeConfirmation() {}
-
   /**
    * Handle required fields.
    *

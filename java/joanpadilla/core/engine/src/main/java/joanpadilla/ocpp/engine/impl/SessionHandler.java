@@ -2,7 +2,6 @@ package joanpadilla.ocpp.engine.impl;
 
 import eu.chargetime.ocpp.feature.profile.ServerCoreEventHandler;
 import eu.chargetime.ocpp.model.core.*;
-import joanpadilla.ocpp.engine.impl.session.Services;
 import joanpadilla.ocpp.engine.impl.session.SessionDirectory;
 import joanpadilla.ocpp.engine.impl.session.SessionException;
 import joanpadilla.ocpp.engine.impl.session.StringUtil;
@@ -24,21 +23,39 @@ public class SessionHandler implements ServerCoreEventHandler {
 
     @Override
     public BootNotificationConfirmation handleBootNotificationRequest(UUID uuid, BootNotificationRequest bootNotificationRequest) {
-        // Log
+
         logger.info(String.format("BOOT-NOTIFICATION.REQ => %s, %s", StringUtil.toString(uuid), bootNotificationRequest.toString()));
 
-        // Se ejecuta el boot
-        BootNotificationConfirmation confirmation = null;
         try {
-            confirmation = sessionDirectory.getSession(uuid).boot(bootNotificationRequest);
+            BootNotificationConfirmation confirmation = sessionDirectory.getSession(uuid).boot(bootNotificationRequest);
             logger.info(String.format("BOOT-NOTIFICATION.CONF => %s, %s", StringUtil.toString(uuid), confirmation.toString()));
             return confirmation;
 
         } catch (SessionException e) {
-            logger.error(String.format("Imposible procesar AUTHORIZE.REQ porque no existe la sesion referenaciada: %s", e.getMessage()));
-            IdTagInfo idTagInfo = new IdTagInfo(AuthorizationStatus.Invalid);
-            idTagInfo.setExpiryDate(ZonedDateTime.now());
-            return new AuthorizeConfirmation(idTagInfo);
+            logger.error(String.format("Imposible procesar AUTHORIZE.REQ porque no existe la sesion de la solicitud: %s", StringUtil.toString(uuid)));
+            return new BootNotificationConfirmation(
+                    ZonedDateTime.now(),
+                    60,
+                    RegistrationStatus.Rejected
+            );
+
+        }
+
+    }
+
+    @Override
+    public HeartbeatConfirmation handleHeartbeatRequest(UUID uuid, HeartbeatRequest heartbeatRequest) {
+
+        logger.info(String.format("HEARTBEAT.REQ => %s, %s", StringUtil.toString(uuid), heartbeatRequest.toString()));
+
+        try {
+            HeartbeatConfirmation confirmation = sessionDirectory.getSession(uuid).heartbeat(heartbeatRequest);
+            logger.info(String.format("HEARTBEAT.CONF => %s, %s", StringUtil.toString(uuid), confirmation.toString()));
+            return confirmation;
+
+        } catch (SessionException e) {
+            logger.error(String.format("Imposible procesar HEARTBEAT.REQ porque no existe la sesion de la solicitud: %s", StringUtil.toString(uuid)));
+            return new HeartbeatConfirmation(ZonedDateTime.now());
 
         }
 
@@ -46,46 +63,58 @@ public class SessionHandler implements ServerCoreEventHandler {
 
     @Override
     public AuthorizeConfirmation handleAuthorizeRequest(UUID uuid, AuthorizeRequest authorizeRequest) {
+
         logger.info(String.format("AUTHORIZE.REQ => %s, %s", StringUtil.toString(uuid), authorizeRequest.toString()));
 
-        // Se ejecuta la autenticacion/autorizacion
-        AuthorizeConfirmation confirmation = services.authorize(uuid, authorizeRequest);
+        try {
+            AuthorizeConfirmation confirmation = sessionDirectory.getSession(uuid).authorize(authorizeRequest);
+            logger.info(String.format("AUTHORIZE.CONF => %s, %s", StringUtil.toString(uuid), confirmation.toString()));
+            return confirmation;
 
-        logger.info(String.format("AUTHORIZE.CONF => %s, %s", StringUtil.toString(uuid), confirmation.toString()));
-        return confirmation;
-    }
+        } catch (SessionException e) {
+            logger.error(String.format("Imposible procesar AUTHORIZE.REQ porque no existe la sesion de la solicitud: %s", StringUtil.toString(uuid)));
+            return new AuthorizeConfirmation(new IdTagInfo(AuthorizationStatus.Invalid));
 
-    @Override
-    public HeartbeatConfirmation handleHeartbeatRequest(UUID uuid, HeartbeatRequest heartbeatRequest) {
-        logger.info(String.format("HEARTBEAT.REQ => %s, %s", StringUtil.toString(uuid), heartbeatRequest.toString()));
+        }
 
-        // Se ejecuta el boot
-        HeartbeatConfirmation confirmation = services.heartbeat(uuid, heartbeatRequest);
-
-        logger.info(String.format("HEARTBEAT.CONF => %s, %s", StringUtil.toString(uuid), confirmation.toString()));
-        return confirmation;
     }
 
     @Override
     public StartTransactionConfirmation handleStartTransactionRequest(UUID uuid, StartTransactionRequest startTransactionRequest) {
+
         logger.info(String.format("START-TRANSACTION.REQ => %s, %s", StringUtil.toString(uuid), startTransactionRequest.toString()));
 
-        // Se ejecuta el boot
-        StartTransactionConfirmation confirmation = services.startTransaction(uuid, startTransactionRequest);
+        try {
+            StartTransactionConfirmation confirmation = sessionDirectory.getSession(uuid).startTransaction(startTransactionRequest);
+            logger.info(String.format("START-TRANSACTION.CONF => %s, %s", StringUtil.toString(uuid), confirmation.toString()));
+            return confirmation;
 
-        logger.info(String.format("START-TRANSACTION.CONF => %s, %s", StringUtil.toString(uuid), confirmation.toString()));
-        return confirmation;
+        } catch (SessionException e) {
+            logger.error(String.format("Imposible procesar START-TRANSACTION.REQ porque no existe la sesion de la solicitud: %s", StringUtil.toString(uuid)));
+            return new StartTransactionConfirmation(buildInvalidTagInfo(), -1);
+
+        }
+
     }
 
     @Override
     public StopTransactionConfirmation handleStopTransactionRequest(UUID uuid, StopTransactionRequest stopTransactionRequest) {
+
         logger.info(String.format("STOP-TRANSACTION.REQ => %s, %s", StringUtil.toString(uuid), stopTransactionRequest.toString()));
 
-        // Se ejecuta el boot
-        StopTransactionConfirmation confirmation = services.stopTransaction(uuid, stopTransactionRequest);
+        try {
+            StopTransactionConfirmation confirmation = sessionDirectory.getSession(uuid).stopTransaction(stopTransactionRequest);
+            logger.info(String.format("STOP-TRANSACTION.CONF => %s, %s", StringUtil.toString(uuid), confirmation.toString()));
+            return confirmation;
 
-        logger.info(String.format("STOP-TRANSACTION.CONF => %s, %s", StringUtil.toString(uuid), confirmation.toString()));
-        return confirmation;
+        } catch (SessionException e) {
+            logger.error(String.format("Imposible procesar STOP-TRANSACTION.REQ porque no existe la sesion de la solicitud: %s", StringUtil.toString(uuid)));
+            StopTransactionConfirmation confirmation = new StopTransactionConfirmation();
+            confirmation.setIdTagInfo(buildInvalidTagInfo());
+            return confirmation;
+
+        }
+
     }
 
     @Override
@@ -104,6 +133,16 @@ public class SessionHandler implements ServerCoreEventHandler {
     public StatusNotificationConfirmation handleStatusNotificationRequest(UUID uuid, StatusNotificationRequest statusNotificationRequest) {
         System.out.println(statusNotificationRequest);
         return null; // returning null means unsupported feature
+    }
+
+    /////////////////////////////////////////
+    // Utilidades privadas
+    /////////////////////////////////////////
+
+    private IdTagInfo buildInvalidTagInfo() {
+        IdTagInfo idTagInfo = new IdTagInfo(AuthorizationStatus.Invalid);
+        idTagInfo.setExpiryDate(ZonedDateTime.now());
+        return idTagInfo;
     }
 
 }

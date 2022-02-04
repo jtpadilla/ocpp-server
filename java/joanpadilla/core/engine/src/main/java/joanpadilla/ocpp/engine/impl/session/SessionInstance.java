@@ -3,7 +3,6 @@ package joanpadilla.ocpp.engine.impl.session;
 import eu.chargetime.ocpp.model.core.*;
 
 import java.time.ZonedDateTime;
-import java.util.UUID;
 
 public class SessionInstance {
 
@@ -36,7 +35,7 @@ public class SessionInstance {
         return new BootNotificationConfirmation(ZonedDateTime.now(), 10, RegistrationStatus.Accepted);
     }
 
-    public HeartbeatConfirmation heartbeat(UUID uuid, HeartbeatRequest heartbeatRequest) {
+    public HeartbeatConfirmation heartbeat(HeartbeatRequest heartbeatRequest) {
         touch();
         return new HeartbeatConfirmation(ZonedDateTime.now());
     }
@@ -44,16 +43,22 @@ public class SessionInstance {
     synchronized public AuthorizeConfirmation authorize(AuthorizeRequest authorizeRequest) {
         touch();
         this.idTag = authorizeRequest.getIdTag();
-        IdTagInfo idTagInfo = buildTagInfo();
-        return new AuthorizeConfirmation(idTagInfo);
+        return new AuthorizeConfirmation(buildTagInfo());
     }
 
-    public StartTransactionConfirmation startTransaction(UUID uuid, StartTransactionRequest startTransactionRequest) {
-        return null;
+    public StartTransactionConfirmation startTransaction(StartTransactionRequest startTransactionRequest) {
+        touch();
+        return new StartTransactionConfirmation(
+                buildTagInfo(),
+                services.nextTransaction()
+        );
     }
 
-    public StopTransactionConfirmation stopTransaction(UUID uuid, StopTransactionRequest stopTransactionRequest) {
-        return null;
+    public StopTransactionConfirmation stopTransaction(StopTransactionRequest stopTransactionRequest) {
+        touch();
+        StopTransactionConfirmation confirmation = new StopTransactionConfirmation();
+        confirmation.setIdTagInfo(buildTagInfo());
+        return confirmation;
     }
 
     //////////////////////////////////////////////////
