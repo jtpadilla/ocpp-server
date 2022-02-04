@@ -14,8 +14,6 @@ public class EngineImpl {
         return new EngineImpl(providers);
     }
 
-    final private EngineProviders providers;
-
     final private ServerCoreEventHandler serverCoreEventHandler;
     final private ServerCoreProfile serverCoreProfile;
     final private JSONServer jsonServer;
@@ -23,11 +21,10 @@ public class EngineImpl {
 
     private EngineImpl(EngineProviders providers) {
 
-        this.providers = providers;
-        SessionDirectory sessionDirectory = new SessionDirectory();
-        Services services = new Services(sessionDirectory);
+        Services services = new Services(providers);
+        SessionDirectory sessionDirectory = new SessionDirectory(services);
 
-        serverCoreEventHandler = new SessionHandler(services);
+        serverCoreEventHandler = new SessionHandler(sessionDirectory);
         serverCoreProfile = new ServerCoreProfile(serverCoreEventHandler);
         jsonServer = new JSONServer(serverCoreProfile);
         serverEvents = new ServerHandler(sessionDirectory);

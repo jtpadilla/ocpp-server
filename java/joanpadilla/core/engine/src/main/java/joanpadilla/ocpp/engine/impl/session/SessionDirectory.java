@@ -6,29 +6,34 @@ import java.util.concurrent.ConcurrentHashMap;
 
 public class SessionDirectory {
 
-    final private Map<UUID, SessionData> map = new ConcurrentHashMap<>();
+    final private Services services;
+    final private Map<UUID, SessionInstance> map = new ConcurrentHashMap<>();
 
-    synchronized public SessionData addSession(UUID session) throws SessionException {
-        if (map.containsKey(session)) {
-            throw new SessionException("No se puede crear una sesion porque ya existe una sesion con el mismo ID");
-        }
-        return map.put(session, new SessionData());
+    public SessionDirectory(Services services) {
+        this.services = services;
     }
 
-    synchronized public SessionData getSession(UUID session) throws SessionException {
-        SessionData sessionData = map.get(session);
+    synchronized public SessionInstance addSession(UUID session) throws SessionException {
+        if (map.containsKey(session)) {
+            throw new SessionException(String.format("No se puede crear una sesion porque ya existe una sesion con este ID: %s", session.toString()));
+        }
+        return map.put(session, new SessionInstance(services));
+    }
+
+    synchronized public SessionInstance getSession(UUID session) throws SessionException {
+        SessionInstance sessionData = map.get(session);
         if (sessionData == null) {
-            throw new SessionException("No existe una sesion para este ID");
+            throw new SessionException(String.format("No existe una sesion para este ID: %s", session.toString()));
         }
         return sessionData;
     }
 
-    synchronized public void removeSession(UUID uuid) throws SessionException {
-        SessionData sessionData = map.get(uuid);
+    synchronized public void removeSession(UUID session) throws SessionException {
+        SessionInstance sessionData = map.get(session);
         if (sessionData != null) {
-            sessionData.clean();
+            sessionData.lostSession();
         } else {
-            throw new SessionException("No se puede suprimir una sesion porque ya existe una sesion con el mismo ID");
+            throw new SessionException(String.format("No se puede suprimir una sesion porque no existe una sesion con este ID: %s", session));
         }
     }
 
