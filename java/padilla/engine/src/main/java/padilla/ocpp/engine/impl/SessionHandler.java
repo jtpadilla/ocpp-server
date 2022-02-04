@@ -14,6 +14,7 @@ import java.util.UUID;
 public class SessionHandler implements ServerCoreEventHandler {
 
     final static private Logger logger = LoggerFactory.getLogger(SessionHandler.class);
+    final static private boolean DISABLE_HEARTBEAT_LOG = true;
 
     final private SessionDirectory sessionDirectory;
 
@@ -46,11 +47,13 @@ public class SessionHandler implements ServerCoreEventHandler {
     @Override
     public HeartbeatConfirmation handleHeartbeatRequest(UUID uuid, HeartbeatRequest request) {
 
-        logger.info(String.format("HEARTBEAT.REQ => %s, %s", StringUtil.toString(uuid), request.toString()));
+        if (!DISABLE_HEARTBEAT_LOG)
+            logger.info(String.format("HEARTBEAT.REQ => %s, %s", StringUtil.toString(uuid), request.toString()));
 
         try {
             HeartbeatConfirmation confirmation = sessionDirectory.getSession(uuid).heartbeat(request);
-            logger.info(String.format("HEARTBEAT.CONF => %s, %s", StringUtil.toString(uuid), confirmation.toString()));
+            if (!DISABLE_HEARTBEAT_LOG)
+                logger.info(String.format("HEARTBEAT.CONF => %s, %s", StringUtil.toString(uuid), confirmation.toString()));
             return confirmation;
 
         } catch (SessionException e) {
