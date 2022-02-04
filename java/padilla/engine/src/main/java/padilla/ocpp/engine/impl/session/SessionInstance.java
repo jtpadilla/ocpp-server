@@ -42,14 +42,18 @@ public class SessionInstance {
 
     synchronized public AuthorizeConfirmation authorize(AuthorizeRequest authorizeRequest) {
         touch();
-        this.idTag = authorizeRequest.getIdTag();
-        return new AuthorizeConfirmation(buildTagInfo());
+        idTag = authorizeRequest.getIdTag();
+        if (services.validIdTag(idTag)) {
+            return new AuthorizeConfirmation(buildAcceptedTagInfo());
+        } else {
+            return new AuthorizeConfirmation(buildInvalidTagInfo());
+        }
     }
 
     public StartTransactionConfirmation startTransaction(StartTransactionRequest request) {
         touch();
         return new StartTransactionConfirmation(
-                buildTagInfo(),
+                buildAcceptedTagInfo(),
                 services.nextTransaction()
         );
     }
@@ -57,7 +61,7 @@ public class SessionInstance {
     public StopTransactionConfirmation stopTransaction(StopTransactionRequest request) {
         touch();
         StopTransactionConfirmation confirmation = new StopTransactionConfirmation();
-        confirmation.setIdTagInfo(buildTagInfo());
+        confirmation.setIdTagInfo(buildAcceptedTagInfo());
         return confirmation;
     }
 
@@ -84,9 +88,14 @@ public class SessionInstance {
         this.touched = ZonedDateTime.now();
     }
 
-    private IdTagInfo buildTagInfo() {
+    private IdTagInfo buildAcceptedTagInfo() {
         IdTagInfo idTagInfo = new IdTagInfo(AuthorizationStatus.Accepted);
         idTagInfo.setExpiryDate(touched);
+        return idTagInfo;
+    }
+
+    private IdTagInfo buildInvalidTagInfo() {
+        IdTagInfo idTagInfo = new IdTagInfo(AuthorizationStatus.Invalid);
         return idTagInfo;
     }
 

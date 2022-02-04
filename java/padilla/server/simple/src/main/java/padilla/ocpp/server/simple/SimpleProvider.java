@@ -1,6 +1,14 @@
 package padilla.ocpp.server.simple;
 
-import padilla.ocpp.engine.EngineProviders;
+import padilla.ocpp.engine.EngineConnector;
 
-public class SimpleProvider implements EngineProviders {
+import java.util.List;
+
+public class SimpleProvider implements EngineConnector {
+
+    @Override
+    public List<String> getIdTagList() {
+        return List.of("11223344", "6677889900");
+    }
+
 }

@@ -6,7 +6,7 @@ public class OcppEngine {
 
     static private EngineImpl impl = null;
 
-    static public void start(EngineProviders providers) {
+    static public void start(EngineConnector providers) {
         synchronized (OcppEngine.class) {
             if (impl != null) {
                 throw new IllegalStateException("El engine ya esta en marcha!");

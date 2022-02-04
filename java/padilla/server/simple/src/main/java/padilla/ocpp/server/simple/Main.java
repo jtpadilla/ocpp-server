@@ -2,7 +2,7 @@ package padilla.ocpp.server.simple;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import padilla.ocpp.engine.EngineProviders;
+import padilla.ocpp.engine.EngineConnector;
 import padilla.ocpp.engine.OcppEngine;
 
 public class Main {
@@ -20,7 +20,7 @@ public class Main {
         try {
 
             // Engine provider pare este servidor
-            EngineProviders providers = new SimpleProvider();
+            EngineConnector providers = new SimpleProvider();
 
             // Se lanzan el servidor
             OcppEngine.start(providers);

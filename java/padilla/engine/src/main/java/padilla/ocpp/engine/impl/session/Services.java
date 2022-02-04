@@ -1,25 +1,25 @@
 package padilla.ocpp.engine.impl.session;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import padilla.ocpp.engine.EngineProviders;
+import padilla.ocpp.engine.EngineConnector;
 
 import java.util.concurrent.atomic.AtomicInteger;
 
 public class Services {
 
-    final static private Logger logger = LoggerFactory.getLogger(Services.class);
-
-    final private EngineProviders providers;
+    final private EngineConnector connector;
     final private AtomicInteger transactionCounter;
 
-    public Services(EngineProviders providers) {
-        this.providers = providers;
+    public Services(EngineConnector connector) {
+        this.connector = connector;
         transactionCounter = new AtomicInteger(0);
     }
 
     public int nextTransaction() {
         return transactionCounter.incrementAndGet();
+    }
+
+    public boolean validIdTag(String idTag) {
+        return connector.getIdTagList().stream().anyMatch(idTag::equals);
     }
 
 }
