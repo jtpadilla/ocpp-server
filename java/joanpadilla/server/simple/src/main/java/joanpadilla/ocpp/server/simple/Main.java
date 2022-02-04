@@ -15,9 +15,7 @@ public class Main {
 
     public static void main(String[] args) {
 
-        logger.info("========================================================================================================");
         logger.info(String.format("Iniciando '%s' con JavaRuntime %s.", APP_NAME, System.getProperty("java.version")));
-        logger.info("========================================================================================================");
 
         try {
 
@@ -48,9 +46,7 @@ public class Main {
             });
 
             // El threda principal debe esperar
-            logger.info("========================================================================================================");
             logger.info("El servidor se ha iniciado correctamente y ahora el thread principal entra en espera...");
-            logger.info("========================================================================================================");
 
             while (!finishServer) {
                 synchronized (Main.class) {
@@ -61,17 +57,13 @@ public class Main {
                 }
             }
 
-            logger.info("========================================================================================================");
             logger.info("Este thread principal se detendra ahora.");
-            logger.info("========================================================================================================");
 
             // La parada ha sido ordenada
             System.exit(0);
 
         } catch (Throwable ex) {
-            logger.error("========================================================================================================");
             logger.error("Se ha producido un error inesperado en el arranque del servidor !!!", ex);
-            logger.error("========================================================================================================");
             System.exit(1);
         }
 

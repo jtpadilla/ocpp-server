@@ -8,5 +8,6 @@ java_library(
     ],
     deps = [
         "//java/joanpadilla/core/model",
+        "@maven//:org_slf4j_slf4j_api",
     ],
 )

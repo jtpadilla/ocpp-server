@@ -66,8 +66,7 @@ public class BootNotificationConfirmation implements Confirmation {
    *     #setInterval(Integer)}
    * @param status Charge Points registration status, see {@link #setStatus(RegistrationStatus)}
    */
-  public BootNotificationConfirmation(
-      ZonedDateTime currentTime, Integer interval, RegistrationStatus status) {
+  public BootNotificationConfirmation(ZonedDateTime currentTime, Integer interval, RegistrationStatus status) {
     setCurrentTime(currentTime);
     setInterval(interval);
     setStatus(status);

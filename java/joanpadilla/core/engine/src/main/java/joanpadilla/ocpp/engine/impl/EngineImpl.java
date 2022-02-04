@@ -5,6 +5,8 @@ import eu.chargetime.ocpp.ServerEvents;
 import eu.chargetime.ocpp.feature.profile.ServerCoreEventHandler;
 import eu.chargetime.ocpp.feature.profile.ServerCoreProfile;
 import joanpadilla.ocpp.engine.EngineProviders;
+import joanpadilla.ocpp.engine.impl.session.Services;
+import joanpadilla.ocpp.engine.impl.session.SessionDirectory;
 
 public class EngineImpl {
 
@@ -22,11 +24,13 @@ public class EngineImpl {
     private EngineImpl(EngineProviders providers) {
 
         this.providers = providers;
+        SessionDirectory sessionDirectory = new SessionDirectory();
+        Services services = new Services(sessionDirectory);
 
-        serverCoreEventHandler = new ServerCoreEventHandlerImpl();
+        serverCoreEventHandler = new SessionHandler(services);
         serverCoreProfile = new ServerCoreProfile(serverCoreEventHandler);
         jsonServer = new JSONServer(serverCoreProfile);
-        serverEvents = new ServerEventsImpl();
+        serverEvents = new ServerHandler(sessionDirectory);
         jsonServer.open("localhost", 8887, serverEvents);
     }
 
