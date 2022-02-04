@@ -4,7 +4,6 @@ import eu.chargetime.ocpp.model.core.AuthorizationStatus;
 import eu.chargetime.ocpp.model.core.IdTagInfo;
 
 import java.time.ZonedDateTime;
-import java.util.Optional;
 
 public class SessionData {
 
@@ -29,14 +28,10 @@ public class SessionData {
 
     }
 
-    public Optional<IdTagInfo> buildTagInfo() {
-        if (idTag == null) {
-            return Optional.empty();
-        } else {
-            IdTagInfo idTagInfo = new IdTagInfo(AuthorizationStatus.Accepted);
-            idTagInfo.setExpiryDate(touched);
-            return Optional.of(idTagInfo);
-        }
+    public IdTagInfo buildTagInfo() {
+        IdTagInfo idTagInfo = new IdTagInfo(AuthorizationStatus.Accepted);
+        idTagInfo.setExpiryDate(touched);
+        return idTagInfo;
     }
 
     public void clean() {
