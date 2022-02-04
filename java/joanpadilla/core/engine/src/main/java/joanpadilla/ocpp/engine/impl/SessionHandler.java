@@ -20,17 +20,6 @@ public class SessionHandler implements ServerCoreEventHandler {
     }
 
     @Override
-    public AuthorizeConfirmation handleAuthorizeRequest(UUID uuid, AuthorizeRequest authorizeRequest) {
-        logger.info(String.format("AUTHORIZE.REQ => %s, %s", StringUtil.toString(uuid), authorizeRequest.toString()));
-
-        // Se ejecuta la autenticacion/autorizacion
-        AuthorizeConfirmation confirmation = services.authorize(uuid, authorizeRequest);
-
-        logger.info(String.format("AUTHORIZE.CONF => %s, %s", StringUtil.toString(uuid), confirmation.toString()));
-        return confirmation;
-    }
-
-    @Override
     public BootNotificationConfirmation handleBootNotificationRequest(UUID uuid, BootNotificationRequest bootNotificationRequest) {
         logger.info(String.format("BOOT-NOTIFICATION.REQ => %s, %s", StringUtil.toString(uuid), bootNotificationRequest.toString()));
 
@@ -42,13 +31,24 @@ public class SessionHandler implements ServerCoreEventHandler {
     }
 
     @Override
+    public AuthorizeConfirmation handleAuthorizeRequest(UUID uuid, AuthorizeRequest authorizeRequest) {
+        logger.info(String.format("AUTHORIZE.REQ => %s, %s", StringUtil.toString(uuid), authorizeRequest.toString()));
+
+        // Se ejecuta la autenticacion/autorizacion
+        AuthorizeConfirmation confirmation = services.authorize(uuid, authorizeRequest);
+
+        logger.info(String.format("AUTHORIZE.CONF => %s, %s", StringUtil.toString(uuid), confirmation.toString()));
+        return confirmation;
+    }
+
+    @Override
     public HeartbeatConfirmation handleHeartbeatRequest(UUID uuid, HeartbeatRequest heartbeatRequest) {
-        //logger.info(String.format("HEARTBEAT.REQ => %s, %s", OcppUtil.toString(uuid), heartbeatRequest.toString()));
+        logger.info(String.format("HEARTBEAT.REQ => %s, %s", StringUtil.toString(uuid), heartbeatRequest.toString()));
 
         // Se ejecuta el boot
         HeartbeatConfirmation confirmation = services.heartbeat(uuid, heartbeatRequest);
 
-        //logger.info(String.format("HEARTBEAT.CONF => %s, %s", OcppUtil.toString(uuid), confirmation.toString()));
+        logger.info(String.format("HEARTBEAT.CONF => %s, %s", StringUtil.toString(uuid), confirmation.toString()));
         return confirmation;
     }
 

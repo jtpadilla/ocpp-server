@@ -1,12 +1,10 @@
 package joanpadilla.ocpp.engine.impl.session;
 
 import eu.chargetime.ocpp.model.core.*;
-import joanpadilla.ocpp.engine.impl.SessionHandler;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.time.ZonedDateTime;
-import java.util.Optional;
 import java.util.UUID;
 
 public class Services {
@@ -17,6 +15,10 @@ public class Services {
 
     public Services(SessionDirectory sessionDirectory) {
         this.sessionDirectory = sessionDirectory;
+    }
+
+    public BootNotificationConfirmation boot(UUID uuid, BootNotificationRequest bootNotificationRequest) {
+        return new BootNotificationConfirmation(ZonedDateTime.now(), 10, RegistrationStatus.Accepted);
     }
 
     public AuthorizeConfirmation authorize(UUID uuid, AuthorizeRequest authorizeRequest) {
@@ -32,10 +34,6 @@ public class Services {
             idTagInfo.setExpiryDate(ZonedDateTime.now());
             return new AuthorizeConfirmation(idTagInfo);
         }
-    }
-
-    public BootNotificationConfirmation boot(UUID uuid, BootNotificationRequest bootNotificationRequest) {
-        return new BootNotificationConfirmation(ZonedDateTime.now(), 120, RegistrationStatus.Accepted);
     }
 
     public HeartbeatConfirmation heartbeat(UUID uuid, HeartbeatRequest heartbeatRequest) {
