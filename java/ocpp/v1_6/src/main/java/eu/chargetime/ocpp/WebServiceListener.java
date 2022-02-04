@@ -30,13 +30,14 @@ import eu.chargetime.ocpp.model.SOAPHostInfo;
 import eu.chargetime.ocpp.model.SessionInformation;
 import eu.chargetime.ocpp.utilities.TimeoutHandler;
 import eu.chargetime.ocpp.utilities.TimeoutTimer;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import javax.xml.soap.SOAPMessage;
 import java.io.IOException;
 import java.net.InetSocketAddress;
 import java.util.HashMap;
 import java.util.concurrent.ExecutionException;
-import javax.xml.soap.SOAPMessage;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 public class WebServiceListener implements Listener {
   private static final Logger logger = LoggerFactory.getLogger(WebServiceListener.class);

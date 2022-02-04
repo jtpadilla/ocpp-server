@@ -29,6 +29,7 @@ import eu.chargetime.ocpp.model.firmware.DiagnosticsStatusNotificationConfirmati
 import eu.chargetime.ocpp.model.firmware.DiagnosticsStatusNotificationRequest;
 import eu.chargetime.ocpp.model.firmware.FirmwareStatusNotificationConfirmation;
 import eu.chargetime.ocpp.model.firmware.FirmwareStatusNotificationRequest;
+
 import java.util.UUID;
 
 public interface ServerFirmwareManagementEventHandler {

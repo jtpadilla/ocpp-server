@@ -25,10 +25,11 @@ package eu.chargetime.ocpp.wss;
  SOFTWARE.
 */
 
-import java.util.List;
-import javax.net.ssl.SSLContext;
 import org.java_websocket.WebSocketServerFactory;
 import org.java_websocket.server.DefaultSSLWebSocketServerFactory;
+
+import javax.net.ssl.SSLContext;
+import java.util.List;
 
 /** Base implementation of WssFactoryBuilder. */
 public class BaseWssFactoryBuilder implements WssFactoryBuilder {

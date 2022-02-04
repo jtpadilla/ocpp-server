@@ -28,8 +28,9 @@ package eu.chargetime.ocpp.model.core;
 
 import eu.chargetime.ocpp.model.Request;
 import eu.chargetime.ocpp.utilities.MoreObjects;
-import java.util.Objects;
+
 import javax.xml.bind.annotation.XmlRootElement;
+import java.util.Objects;
 
 /** Sent by the Charge Point to the Central System. Request holds no values and is always valid. */
 @XmlRootElement

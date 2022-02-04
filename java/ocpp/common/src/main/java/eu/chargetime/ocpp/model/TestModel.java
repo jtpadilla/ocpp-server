@@ -1,8 +1,8 @@
 package eu.chargetime.ocpp.model;
 
-import java.time.ZonedDateTime;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
+import java.time.ZonedDateTime;
 
 /*
 ChargeTime.eu - Java-OCA-OCPP

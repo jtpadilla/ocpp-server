@@ -23,11 +23,11 @@ package eu.chargetime.ocpp.utilities;
  * the License.
  */
 
-import static java.util.concurrent.TimeUnit.*;
-
 import java.time.Duration;
 import java.util.Locale;
 import java.util.concurrent.TimeUnit;
+
+import static java.util.concurrent.TimeUnit.*;
 
 /**
  * Stopwatch implementation. Cut version from Guava (needed to minimize dependency tree for client).

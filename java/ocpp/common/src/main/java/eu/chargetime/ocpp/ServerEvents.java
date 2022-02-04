@@ -26,6 +26,7 @@ package eu.chargetime.ocpp;
 */
 
 import eu.chargetime.ocpp.model.SessionInformation;
+
 import java.util.UUID;
 
 public interface ServerEvents {

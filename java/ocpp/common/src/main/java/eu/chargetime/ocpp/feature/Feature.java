@@ -28,6 +28,7 @@ SOFTWARE.
 
 import eu.chargetime.ocpp.model.Confirmation;
 import eu.chargetime.ocpp.model.Request;
+
 import java.util.UUID;
 
 /**

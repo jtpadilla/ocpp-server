@@ -25,12 +25,12 @@ package eu.chargetime.ocpp.wss;
  SOFTWARE.
 */
 
+import javax.net.ssl.SSLSocketFactory;
 import java.io.IOException;
 import java.net.InetSocketAddress;
 import java.net.Proxy;
 import java.net.Socket;
 import java.net.URI;
-import javax.net.ssl.SSLSocketFactory;
 
 /** Base implementation of WssSocketBuilder. */
 public class BaseWssSocketBuilder implements WssSocketBuilder {

@@ -30,6 +30,7 @@ package eu.chargetime.ocpp.model.localauthlist;
 import eu.chargetime.ocpp.PropertyConstraintException;
 import eu.chargetime.ocpp.model.Confirmation;
 import eu.chargetime.ocpp.utilities.MoreObjects;
+
 import java.util.Objects;
 
 public class SendLocalListConfirmation implements Confirmation {

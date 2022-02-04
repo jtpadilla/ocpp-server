@@ -6,6 +6,7 @@ import eu.chargetime.ocpp.feature.TriggerMessageFeature;
 import eu.chargetime.ocpp.model.Confirmation;
 import eu.chargetime.ocpp.model.Request;
 import eu.chargetime.ocpp.model.remotetrigger.TriggerMessageRequest;
+
 import java.util.ArrayList;
 import java.util.UUID;
 

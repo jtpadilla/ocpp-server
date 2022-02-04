@@ -29,9 +29,10 @@ package eu.chargetime.ocpp.model.smartcharging;
 
 import eu.chargetime.ocpp.model.Confirmation;
 import eu.chargetime.ocpp.utilities.MoreObjects;
-import java.util.Objects;
+
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
+import java.util.Objects;
 
 @XmlRootElement(name = "setChargingProfileResponse")
 public class SetChargingProfileConfirmation implements Confirmation {

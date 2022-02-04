@@ -31,9 +31,10 @@ SOFTWARE.
 
 import eu.chargetime.ocpp.model.Confirmation;
 import eu.chargetime.ocpp.utilities.MoreObjects;
-import java.util.Objects;
+
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
+import java.util.Objects;
 
 /** Sent by the Charge Point to the Central System in response to a {@link ClearCacheRequest}. */
 @XmlRootElement(name = "clearCacheResponse")

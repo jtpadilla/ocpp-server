@@ -28,6 +28,7 @@ package eu.chargetime.ocpp;
 import eu.chargetime.ocpp.feature.profile.Profile;
 import eu.chargetime.ocpp.model.Confirmation;
 import eu.chargetime.ocpp.model.Request;
+
 import java.util.concurrent.CompletionStage;
 
 public interface IClientAPI {

@@ -26,6 +26,7 @@ package eu.chargetime.ocpp;
 */
 
 import eu.chargetime.ocpp.model.Confirmation;
+
 import java.util.Optional;
 import java.util.concurrent.CompletableFuture;
 

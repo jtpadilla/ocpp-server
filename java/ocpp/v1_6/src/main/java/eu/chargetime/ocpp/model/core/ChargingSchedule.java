@@ -29,12 +29,13 @@ package eu.chargetime.ocpp.model.core;
 
 import eu.chargetime.ocpp.model.Validatable;
 import eu.chargetime.ocpp.utilities.MoreObjects;
-import java.time.ZonedDateTime;
-import java.util.Arrays;
-import java.util.Objects;
+
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
+import java.time.ZonedDateTime;
+import java.util.Arrays;
+import java.util.Objects;
 
 /** Class type used with {@link ChargingProfile} */
 @XmlRootElement

@@ -7,6 +7,7 @@ import eu.chargetime.ocpp.model.core.ChargingProfile;
 import eu.chargetime.ocpp.model.smartcharging.ClearChargingProfileRequest;
 import eu.chargetime.ocpp.model.smartcharging.GetCompositeScheduleRequest;
 import eu.chargetime.ocpp.model.smartcharging.SetChargingProfileRequest;
+
 import java.util.HashSet;
 import java.util.UUID;
 

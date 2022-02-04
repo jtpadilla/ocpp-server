@@ -25,6 +25,11 @@ package eu.chargetime.ocpp.wss;
  SOFTWARE.
 */
 
+import org.java_websocket.SSLSocketChannel2;
+import org.java_websocket.server.DefaultSSLWebSocketServerFactory;
+
+import javax.net.ssl.SSLContext;
+import javax.net.ssl.SSLEngine;
 import java.io.IOException;
 import java.nio.channels.ByteChannel;
 import java.nio.channels.SelectionKey;
@@ -32,10 +37,6 @@ import java.nio.channels.SocketChannel;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import javax.net.ssl.SSLContext;
-import javax.net.ssl.SSLEngine;
-import org.java_websocket.SSLSocketChannel2;
-import org.java_websocket.server.DefaultSSLWebSocketServerFactory;
 
 /**
  * Overriding wrapping of channel from DefaultSSLWebSocketServerFactory to restrict enabled ciphers.

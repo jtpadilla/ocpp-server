@@ -33,6 +33,7 @@ import eu.chargetime.ocpp.model.firmware.DiagnosticsStatusNotificationRequest;
 import eu.chargetime.ocpp.model.firmware.FirmwareStatusNotificationRequest;
 import eu.chargetime.ocpp.model.firmware.GetDiagnosticsRequest;
 import eu.chargetime.ocpp.model.firmware.UpdateFirmwareRequest;
+
 import java.time.ZonedDateTime;
 import java.util.HashSet;
 import java.util.UUID;

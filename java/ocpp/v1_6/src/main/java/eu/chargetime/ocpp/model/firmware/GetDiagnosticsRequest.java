@@ -28,11 +28,12 @@ package eu.chargetime.ocpp.model.firmware;
 
 import eu.chargetime.ocpp.model.Request;
 import eu.chargetime.ocpp.utilities.MoreObjects;
-import java.time.ZonedDateTime;
-import java.util.Objects;
+
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
+import java.time.ZonedDateTime;
+import java.util.Objects;
 
 @XmlRootElement
 @XmlType(propOrder = {"location", "startTime", "stopTime", "retries", "retryInterval"})

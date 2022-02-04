@@ -30,6 +30,7 @@ import eu.chargetime.ocpp.feature.Feature;
 import eu.chargetime.ocpp.feature.ProfileFeature;
 import eu.chargetime.ocpp.model.Confirmation;
 import eu.chargetime.ocpp.model.Request;
+
 import java.util.UUID;
 
 /** Interface used for Feature Profiles. */

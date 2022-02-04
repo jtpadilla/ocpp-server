@@ -32,11 +32,12 @@ SOFTWARE.
 import eu.chargetime.ocpp.PropertyConstraintException;
 import eu.chargetime.ocpp.model.Confirmation;
 import eu.chargetime.ocpp.utilities.MoreObjects;
-import java.time.ZonedDateTime;
-import java.util.Objects;
+
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
+import java.time.ZonedDateTime;
+import java.util.Objects;
 
 /**
  * Sent by the Central System to the Charge Point in response to a {@link BootNotificationRequest}.

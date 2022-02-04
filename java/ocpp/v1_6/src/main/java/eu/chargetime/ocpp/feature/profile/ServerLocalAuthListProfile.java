@@ -33,6 +33,7 @@ import eu.chargetime.ocpp.feature.SendLocalListFeature;
 import eu.chargetime.ocpp.model.Confirmation;
 import eu.chargetime.ocpp.model.Request;
 import eu.chargetime.ocpp.model.localauthlist.*;
+
 import java.util.HashSet;
 import java.util.UUID;
 

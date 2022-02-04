@@ -25,6 +25,7 @@ package eu.chargetime.ocpp.model; /*
                                   */
 
 import eu.chargetime.ocpp.utilities.MoreObjects;
+
 import java.util.Objects;
 
 public class SOAPHostInfo {

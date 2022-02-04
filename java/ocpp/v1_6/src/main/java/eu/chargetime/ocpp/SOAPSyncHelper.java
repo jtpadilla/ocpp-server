@@ -24,14 +24,15 @@ package eu.chargetime.ocpp; /*
                                SOFTWARE.
                             */
 
-import java.util.HashMap;
-import java.util.concurrent.CompletableFuture;
-import javax.xml.soap.SOAPException;
-import javax.xml.soap.SOAPHeader;
-import javax.xml.soap.SOAPMessage;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.w3c.dom.NodeList;
+
+import javax.xml.soap.SOAPException;
+import javax.xml.soap.SOAPHeader;
+import javax.xml.soap.SOAPMessage;
+import java.util.HashMap;
+import java.util.concurrent.CompletableFuture;
 
 public abstract class SOAPSyncHelper {
   private static final Logger logger = LoggerFactory.getLogger(SOAPSyncHelper.class);

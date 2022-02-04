@@ -30,6 +30,7 @@ package eu.chargetime.ocpp.model.localauthlist;
 import eu.chargetime.ocpp.PropertyConstraintException;
 import eu.chargetime.ocpp.model.Request;
 import eu.chargetime.ocpp.utilities.MoreObjects;
+
 import java.util.Arrays;
 import java.util.Objects;
 

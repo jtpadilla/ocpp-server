@@ -31,6 +31,10 @@ import eu.chargetime.ocpp.feature.profile.Profile;
 import eu.chargetime.ocpp.model.Confirmation;
 import eu.chargetime.ocpp.model.Request;
 import eu.chargetime.ocpp.model.SOAPHostInfo;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import javax.xml.soap.SOAPMessage;
 import java.io.IOException;
 import java.net.InetSocketAddress;
 import java.net.URL;
@@ -38,9 +42,6 @@ import java.util.concurrent.CompletionStage;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
-import javax.xml.soap.SOAPMessage;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 public class SOAPClient implements IClientAPI {
   private static final Logger logger = LoggerFactory.getLogger(SOAPClient.class);

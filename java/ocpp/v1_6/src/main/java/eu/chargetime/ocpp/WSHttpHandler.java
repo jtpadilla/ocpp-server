@@ -27,12 +27,13 @@ package eu.chargetime.ocpp;
 
 import com.sun.net.httpserver.HttpExchange;
 import com.sun.net.httpserver.HttpHandler;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import javax.xml.soap.*;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
-import javax.xml.soap.*;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 public class WSHttpHandler implements HttpHandler {
   private static final Logger logger = LoggerFactory.getLogger(WSHttpHandler.class);

@@ -29,9 +29,10 @@ package eu.chargetime.ocpp.model.smartcharging;
 import eu.chargetime.ocpp.model.Confirmation;
 import eu.chargetime.ocpp.model.core.ChargingSchedule;
 import eu.chargetime.ocpp.utilities.MoreObjects;
+
+import javax.xml.bind.annotation.XmlElement;
 import java.time.ZonedDateTime;
 import java.util.Objects;
-import javax.xml.bind.annotation.XmlElement;
 
 public class GetCompositeScheduleConfirmation implements Confirmation {
 

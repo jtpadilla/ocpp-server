@@ -28,11 +28,12 @@ SOFTWARE.
 
 import eu.chargetime.ocpp.model.*;
 import eu.chargetime.ocpp.utilities.SugarUtil;
-import java.util.ArrayDeque;
-import javax.xml.soap.SOAPMessage;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.w3c.dom.Document;
+
+import javax.xml.soap.SOAPMessage;
+import java.util.ArrayDeque;
 
 /**
  * Abstract class. Handles basic communication: Pack and send messages. Receive and unpack messages.
