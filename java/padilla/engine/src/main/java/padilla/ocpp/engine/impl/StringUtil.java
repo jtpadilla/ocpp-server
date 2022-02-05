@@ -1,4 +1,4 @@
-package padilla.ocpp.engine.impl.session;
+package padilla.ocpp.engine.impl;
 
 import eu.chargetime.ocpp.model.SessionInformation;
 import eu.chargetime.ocpp.utilities.MoreObjects;

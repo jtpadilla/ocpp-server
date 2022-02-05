@@ -6,7 +6,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import padilla.ocpp.engine.impl.session.SessionDirectory;
 import padilla.ocpp.engine.impl.session.SessionException;
-import padilla.ocpp.engine.impl.session.StringUtil;
 
 import java.util.UUID;
 
