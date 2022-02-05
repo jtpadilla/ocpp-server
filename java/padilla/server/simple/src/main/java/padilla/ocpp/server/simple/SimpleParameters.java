@@ -6,7 +6,7 @@ public class SimpleParameters implements OcppParameters {
 
     @Override
     public int getHeartbeatSeconds() {
-        return 30;
+        return 60;
     }
 
     @Override
