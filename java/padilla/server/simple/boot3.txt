@@ -1,33 +1,39 @@
-
+======================================
 == > Pasa tarjeta
+======================================
 feb 14, 2022 12:19:00 P. M. padilla.ocpp.engine.impl.SessionHandler handleAuthorizeRequest
 INFORMACIÓN: AUTHORIZE.REQ => UUID{uuid=20b40970-6b10-404b-94f7-5c88febe0314}, AuthorizeRequest{idTag=2EF20FC9, isValid=true}
 feb 14, 2022 12:19:00 P. M. padilla.ocpp.engine.impl.SessionHandler handleAuthorizeRequest
 INFORMACIÓN: AUTHORIZE.CONF => UUID{uuid=20b40970-6b10-404b-94f7-5c88febe0314}, AuthorizeConfirmation{idTagInfo=IdTagInfo{expiryDate="2022-02-14T12:19:00.034375992+01:00[Europe/Madrid]", parentIdTag=null, status=Accepted}, isValid=true}
+
 feb 14, 2022 12:19:00 P. M. padilla.ocpp.engine.impl.SessionHandler handleStatusNotificationRequest
 INFORMACIÓN: STATUS-NOTIFICATION.REQ => UUID{uuid=20b40970-6b10-404b-94f7-5c88febe0314}, StatusNotificationRequest{connectorId=1, errorCode=NoError, info=Waiting for electric vehicle connected, status=Preparing, timestamp="2022-02-14T11:18:58Z", vendorId=Circutor, vendorErrorCode=null, isValid=true}
 feb 14, 2022 12:19:00 P. M. padilla.ocpp.engine.impl.SessionHandler handleStatusNotificationRequest
 INFORMACIÓN: STATUS-NOTIFICATION.CONF => UUID{uuid=20b40970-6b10-404b-94f7-5c88febe0314}, StatusNotificationConfirmation{isValid=true}
+
 feb 14, 2022 12:19:02 P. M. padilla.ocpp.engine.impl.SessionHandler handleStatusNotificationRequest
 INFORMACIÓN: STATUS-NOTIFICATION.REQ => UUID{uuid=20b40970-6b10-404b-94f7-5c88febe0314}, StatusNotificationRequest{connectorId=2, errorCode=NoError, info=Waiting for electric vehicle connected, status=Preparing, timestamp="2022-02-14T11:18:58Z", vendorId=Circutor, vendorErrorCode=null, isValid=true}
 feb 14, 2022 12:19:02 P. M. padilla.ocpp.engine.impl.SessionHandler handleStatusNotificationRequest
 INFORMACIÓN: STATUS-NOTIFICATION.CONF => UUID{uuid=20b40970-6b10-404b-94f7-5c88febe0314}, StatusNotificationConfirmation{isValid=true}
 
-== Se comnecta el vehivulo
+======================================
+== Se comnecta el vehivulo por el 2
+======================================
 feb 14, 2022 12:19:27 P. M. padilla.ocpp.engine.impl.SessionHandler handleStatusNotificationRequest
 INFORMACIÓN: STATUS-NOTIFICATION.REQ => UUID{uuid=20b40970-6b10-404b-94f7-5c88febe0314}, StatusNotificationRequest{connectorId=1, errorCode=NoError, info=Available for new transaction, status=Available, timestamp="2022-02-14T11:19:25Z", vendorId=Circutor, vendorErrorCode=null, isValid=true}
 feb 14, 2022 12:19:27 P. M. padilla.ocpp.engine.impl.SessionHandler handleStatusNotificationRequest
 INFORMACIÓN: STATUS-NOTIFICATION.CONF => UUID{uuid=20b40970-6b10-404b-94f7-5c88febe0314}, StatusNotificationConfirmation{isValid=true}
+
 feb 14, 2022 12:19:31 P. M. padilla.ocpp.engine.impl.SessionHandler handleStatusNotificationRequest
 INFORMACIÓN: STATUS-NOTIFICATION.REQ => UUID{uuid=20b40970-6b10-404b-94f7-5c88febe0314}, StatusNotificationRequest{connectorId=2, errorCode=NoError, info=Vehicle can charge or discharge, status=Charging, timestamp="2022-02-14T11:19:28Z", vendorId=Circutor, vendorErrorCode=null, isValid=true}
 feb 14, 2022 12:19:31 P. M. padilla.ocpp.engine.impl.SessionHandler handleStatusNotificationRequest
 INFORMACIÓN: STATUS-NOTIFICATION.CONF => UUID{uuid=20b40970-6b10-404b-94f7-5c88febe0314}, StatusNotificationConfirmation{isValid=true}
+
 feb 14, 2022 12:19:31 P. M. padilla.ocpp.engine.impl.SessionHandler handleStartTransactionRequest
 INFORMACIÓN: START-TRANSACTION.REQ => UUID{uuid=20b40970-6b10-404b-94f7-5c88febe0314}, StartTransactionRequest{connectorId=2, idTag=2EF20FC9, meterStart=0, reservationId=null, timestamp="2022-02-14T11:19:26Z", isValid=true}
 feb 14, 2022 12:19:31 P. M. padilla.ocpp.engine.impl.SessionHandler handleStartTransactionRequest
 INFORMACIÓN: START-TRANSACTION.CONF => UUID{uuid=20b40970-6b10-404b-94f7-5c88febe0314}, StartTransactionConfirmation{idTagInfo=IdTagInfo{expiryDate="2022-02-14T12:19:31.597484059+01:00[Europe/Madrid]", parentIdTag=null, status=Accepted}, transactionId=1, isValid=true}
 
-INFORMACIÓN: START-TRANSACTION.CONF => UUID{uuid=20b40970-6b10-404b-94f7-5c88febe0314}, StartTransactionConfirmation{idTagInfo=IdTagInfo{expiryDate="2022-02-14T12:19:31.597484059+01:00[Europe/Madrid]", parentIdTag=null, status=Accepted}, transactionId=1, isValid=true}
 feb 14, 2022 12:19:44 P. M. padilla.ocpp.engine.impl.SessionHandler handleStatusNotificationRequest
 INFORMACIÓN: STATUS-NOTIFICATION.REQ => UUID{uuid=20b40970-6b10-404b-94f7-5c88febe0314}, StatusNotificationRequest{connectorId=2, errorCode=NoError, info=Charge paused by EV request, status=SuspendedEV, timestamp="2022-02-14T11:19:42Z", vendorId=Circutor, vendorErrorCode=null, isValid=true}
 feb 14, 2022 12:19:44 P. M. padilla.ocpp.engine.impl.SessionHandler handleStatusNotificationRequest
@@ -37,6 +43,7 @@ eb 14, 2022 12:20:43 P. M. padilla.ocpp.engine.impl.SessionHandler handleHeartb
 INFORMACIÓN: HEARTBEAT.REQ => UUID{uuid=20b40970-6b10-404b-94f7-5c88febe0314}, HeartbeatRequest{isValid=true}
 feb 14, 2022 12:20:43 P. M. padilla.ocpp.engine.impl.SessionHandler handleHeartbeatRequest
 INFORMACIÓN: HEARTBEAT.CONF => UUID{uuid=20b40970-6b10-404b-94f7-5c88febe0314}, HeartbeatConfirmation{currentTime="2022-02-14T12:20:43.620516626+01:00[Europe/Madrid]", isValid=true}
+
 feb 14, 2022 12:21:44 P. M. padilla.ocpp.engine.impl.SessionHandler handleHeartbeatRequest
 INFORMACIÓN: HEARTBEAT.REQ => UUID{uuid=20b40970-6b10-404b-94f7-5c88febe0314}, HeartbeatRequest{isValid=true}
 feb 14, 2022 12:21:44 P. M. padilla.ocpp.engine.impl.SessionHandler handleHeartbeatRequest
@@ -46,6 +53,7 @@ feb 14, 2022 12:22:45 P. M. padilla.ocpp.engine.impl.SessionHandler handleHeart
 INFORMACIÓN: HEARTBEAT.REQ => UUID{uuid=20b40970-6b10-404b-94f7-5c88febe0314}, HeartbeatRequest{isValid=true}
 feb 14, 2022 12:22:45 P. M. padilla.ocpp.engine.impl.SessionHandler handleHeartbeatRequest
 INFORMACIÓN: HEARTBEAT.CONF => UUID{uuid=20b40970-6b10-404b-94f7-5c88febe0314}, HeartbeatConfirmation{currentTime="2022-02-14T12:22:45.818769480+01:00[Europe/Madrid]", isValid=true}
+
 feb 14, 2022 12:22:47 P. M. padilla.ocpp.engine.impl.SessionHandler handleStatusNotificationRequest
 INFORMACIÓN: STATUS-NOTIFICATION.REQ => UUID{uuid=20b40970-6b10-404b-94f7-5c88febe0314}, StatusNotificationRequest{connectorId=2, errorCode=NoError, info=Vehicle can charge or discharge, status=Charging, timestamp="2022-02-14T11:22:44Z", vendorId=Circutor, vendorErrorCode=null, isValid=true}
 feb 14, 2022 12:22:47 P. M. padilla.ocpp.engine.impl.SessionHandler handleStatusNotificationRequest
@@ -56,15 +64,19 @@ INFORMACIÓN: HEARTBEAT.REQ => UUID{uuid=20b40970-6b10-404b-94f7-5c88febe0314}, 
 feb 14, 2022 12:23:46 P. M. padilla.ocpp.engine.impl.SessionHandler handleHeartbeatRequest
 INFORMACIÓN: HEARTBEAT.CONF => UUID{uuid=20b40970-6b10-404b-94f7-5c88febe0314}, HeartbeatConfirmation{currentTime="2022-02-14T12:23:46.910453613+01:00[Europe/Madrid]", isValid=true}
 
+======================================
 == Se desconecta el vehiculo
+======================================
 feb 14, 2022 12:25:09 P. M. padilla.ocpp.engine.impl.SessionHandler handleStatusNotificationRequest
 INFORMACIÓN: STATUS-NOTIFICATION.REQ => UUID{uuid=20b40970-6b10-404b-94f7-5c88febe0314}, StatusNotificationRequest{connectorId=2, errorCode=NoError, info=Charge paused by EV request, status=SuspendedEV, timestamp="2022-02-14T11:25:07Z", vendorId=Circutor, vendorErrorCode=null, isValid=true}
 feb 14, 2022 12:25:09 P. M. padilla.ocpp.engine.impl.SessionHandler handleStatusNotificationRequest
 INFORMACIÓN: STATUS-NOTIFICATION.CONF => UUID{uuid=20b40970-6b10-404b-94f7-5c88febe0314}, StatusNotificationConfirmation{isValid=true}
+
 feb 14, 2022 12:25:13 P. M. padilla.ocpp.engine.impl.SessionHandler handleStatusNotificationRequest
 INFORMACIÓN: STATUS-NOTIFICATION.REQ => UUID{uuid=20b40970-6b10-404b-94f7-5c88febe0314}, StatusNotificationRequest{connectorId=2, errorCode=NoError, info=Electric vehicle disconnected, status=Available, timestamp="2022-02-14T11:25:12Z", vendorId=Circutor, vendorErrorCode=null, isValid=true}
 feb 14, 2022 12:25:13 P. M. padilla.ocpp.engine.impl.SessionHandler handleStatusNotificationRequest
 INFORMACIÓN: STATUS-NOTIFICATION.CONF => UUID{uuid=20b40970-6b10-404b-94f7-5c88febe0314}, StatusNotificationConfirmation{isValid=true}
+
 feb 14, 2022 12:25:14 P. M. padilla.ocpp.engine.impl.SessionHandler handleStopTransactionRequest
 INFORMACIÓN: STOP-TRANSACTION.REQ => UUID{uuid=20b40970-6b10-404b-94f7-5c88febe0314}, StopTransactionRequest{idTag=2EF20FC9, meterStop=130, timestamp="2022-02-14T11:25:11Z", transactionId=1, reason=EVDisconnected, transactionData=null, isValid=true}
 feb 14, 2022 12:25:14 P. M. padilla.ocpp.engine.impl.SessionHandler handleStopTransactionRequest
