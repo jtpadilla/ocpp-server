@@ -1,0 +1,87 @@
+feb 14, 2022 11:53:27 A. M. padilla.ocpp.server.simple.SimpleServer main
+INFORMACIÓN: Iniciando 'Simple OCPPServer' con JavaRuntime 17.
+feb 14, 2022 11:53:27 A. M. eu.chargetime.ocpp.JSONServer open
+INFORMACIÓN: Feature repository: FeatureRepository{actionMap.size=16, classMap.size=32}
+feb 14, 2022 11:53:27 A. M. padilla.ocpp.server.simple.SimpleServer main
+INFORMACIÓN: El servidor se ha iniciado correctamente y ahora el thread principal entra en espera...
+feb 14, 2022 11:53:36 A. M. padilla.ocpp.engine.impl.ServerHandler newSession
+
+INFORMACIÓN: SESSION-NEW => UUID{uuid=20b40970-6b10-404b-94f7-5c88febe0314}, SessionInformation{identifier=/ocpp1.6/unknown, address=/150.128.196.169:41567, soapToURL=null, proxiedAddress=}
+feb 14, 2022 11:53:36 A. M. padilla.ocpp.engine.impl.SessionHandler handleStatusNotificationRequest
+
+INFORMACIÓN: STATUS-NOTIFICATION.REQ => UUID{uuid=20b40970-6b10-404b-94f7-5c88febe0314}, StatusNotificationRequest{connectorId=0, errorCode=NoError, info=CP Available: one or more connectors available, status=Available, timestamp="2022-02-14T10:53:34Z", vendorId=Circutor, vendorErrorCode=null, isValid=true}
+feb 14, 2022 11:53:36 A. M. padilla.ocpp.engine.impl.SessionHandler handleStatusNotificationRequest
+INFORMACIÓN: STATUS-NOTIFICATION.CONF => UUID{uuid=20b40970-6b10-404b-94f7-5c88febe0314}, StatusNotificationConfirmation{isValid=true}
+feb 14, 2022 11:54:35 A. M. padilla.ocpp.engine.impl.SessionHandler handleHeartbeatRequest
+
+INFORMACIÓN: HEARTBEAT.REQ => UUID{uuid=20b40970-6b10-404b-94f7-5c88febe0314}, HeartbeatRequest{isValid=true}
+feb 14, 2022 11:54:35 A. M. padilla.ocpp.engine.impl.SessionHandler handleHeartbeatRequest
+INFORMACIÓN: HEARTBEAT.CONF => UUID{uuid=20b40970-6b10-404b-94f7-5c88febe0314}, HeartbeatConfirmation{currentTime="2022-02-14T11:54:35.329470575+01:00[Europe/Madrid]", isValid=true}
+
+// Pasa tarjeta valida -> INICIO
+feb 14, 2022 11:55:50 A. M. padilla.ocpp.engine.impl.SessionHandler handleAuthorizeRequest
+INFORMACIÓN: AUTHORIZE.REQ => UUID{uuid=20b40970-6b10-404b-94f7-5c88febe0314}, AuthorizeRequest{idTag=4EF20EC9, isValid=true}
+feb 14, 2022 11:55:50 A. M. padilla.ocpp.engine.impl.SessionHandler handleAuthorizeRequest
+INFORMACIÓN: AUTHORIZE.CONF => UUID{uuid=20b40970-6b10-404b-94f7-5c88febe0314}, AuthorizeConfirmation{idTagInfo=IdTagInfo{expiryDate="2022-02-14T11:55:50.260619133+01:00[Europe/Madrid]", parentIdTag=null, status=Accepted}, isValid=true}
+feb 14, 2022 11:55:51 A. M. padilla.ocpp.engine.impl.SessionHandler handleStatusNotificationRequest
+INFORMACIÓN: STATUS-NOTIFICATION.REQ => UUID{uuid=20b40970-6b10-404b-94f7-5c88febe0314}, StatusNotificationRequest{connectorId=1, errorCode=NoError, info=Waiting for electric vehicle connected, status=Preparing, timestamp="2022-02-14T10:55:48Z", vendorId=Circutor, vendorErrorCode=null, isValid=true}
+feb 14, 2022 11:55:51 A. M. padilla.ocpp.engine.impl.SessionHandler handleStatusNotificationRequest
+INFORMACIÓN: STATUS-NOTIFICATION.CONF => UUID{uuid=20b40970-6b10-404b-94f7-5c88febe0314}, StatusNotificationConfirmation{isValid=true}
+feb 14, 2022 11:55:51 A. M. padilla.ocpp.engine.impl.SessionHandler handleStatusNotificationRequest
+INFORMACIÓN: STATUS-NOTIFICATION.REQ => UUID{uuid=20b40970-6b10-404b-94f7-5c88febe0314}, StatusNotificationRequest{connectorId=2, errorCode=NoError, info=Waiting for electric vehicle connected, status=Preparing, timestamp="2022-02-14T10:55:49Z", vendorId=Circutor, vendorErrorCode=null, isValid=true}
+feb 14, 2022 11:55:51 A. M. padilla.ocpp.engine.impl.SessionHandler handleStatusNotificationRequest
+INFORMACIÓN: STATUS-NOTIFICATION.CONF => UUID{uuid=20b40970-6b10-404b-94f7-5c88febe0314}, StatusNotificationConfirmation{isValid=true}
+
+// Pasa tarjeta valida -> FINAL
+feb 14, 2022 11:56:50 A. M. padilla.ocpp.engine.impl.SessionHandler handleHeartbeatRequest
+INFORMACIÓN: HEARTBEAT.REQ => UUID{uuid=20b40970-6b10-404b-94f7-5c88febe0314}, HeartbeatRequest{isValid=true}
+feb 14, 2022 11:56:50 A. M. padilla.ocpp.engine.impl.SessionHandler handleHeartbeatRequest
+INFORMACIÓN: HEARTBEAT.CONF => UUID{uuid=20b40970-6b10-404b-94f7-5c88febe0314}, HeartbeatConfirmation{currentTime="2022-02-14T11:56:50.552034792+01:00[Europe/Madrid]", isValid=true}
+feb 14, 2022 11:56:52 A. M. padilla.ocpp.engine.impl.SessionHandler handleStatusNotificationRequest
+INFORMACIÓN: STATUS-NOTIFICATION.REQ => UUID{uuid=20b40970-6b10-404b-94f7-5c88febe0314}, StatusNotificationRequest{connectorId=2, errorCode=NoError, info=Available for new transaction, status=Available, timestamp="2022-02-14T10:56:50Z", vendorId=Circutor, vendorErrorCode=null, isValid=true}
+feb 14, 2022 11:56:52 A. M. padilla.ocpp.engine.impl.SessionHandler handleStatusNotificationRequest
+INFORMACIÓN: STATUS-NOTIFICATION.CONF => UUID{uuid=20b40970-6b10-404b-94f7-5c88febe0314}, StatusNotificationConfirmation{isValid=true}
+feb 14, 2022 11:56:52 A. M. padilla.ocpp.engine.impl.SessionHandler handleStatusNotificationRequest
+INFORMACIÓN: STATUS-NOTIFICATION.REQ => UUID{uuid=20b40970-6b10-404b-94f7-5c88febe0314}, StatusNotificationRequest{connectorId=1, errorCode=NoError, info=Available for new transaction, status=Available, timestamp="2022-02-14T10:56:50Z", vendorId=Circutor, vendorErrorCode=null, isValid=true}
+feb 14, 2022 11:56:52 A. M. padilla.ocpp.engine.impl.SessionHandler handleStatusNotificationRequest
+INFORMACIÓN: STATUS-NOTIFICATION.CONF => UUID{uuid=20b40970-6b10-404b-94f7-5c88febe0314}, StatusNotificationConfirmation{isValid=true}
+
+
+// Pasat tarjeta..
+feb 14, 2022 11:58:21 A. M. padilla.ocpp.engine.impl.SessionHandler handleAuthorizeRequest
+INFORMACIÓN: AUTHORIZE.REQ => UUID{uuid=20b40970-6b10-404b-94f7-5c88febe0314}, AuthorizeRequest{idTag=2EF20FC9, isValid=true}
+feb 14, 2022 11:58:21 A. M. padilla.ocpp.engine.impl.SessionHandler handleAuthorizeRequest
+INFORMACIÓN: AUTHORIZE.CONF => UUID{uuid=20b40970-6b10-404b-94f7-5c88febe0314}, AuthorizeConfirmation{idTagInfo=IdTagInfo{expiryDate="2022-02-14T11:58:21.605995030+01:00[Europe/Madrid]", parentIdTag=null, status=Accepted}, isValid=true}
+feb 14, 2022 11:58:23 A. M. padilla.ocpp.engine.impl.SessionHandler handleStatusNotificationRequest
+INFORMACIÓN: STATUS-NOTIFICATION.REQ => UUID{uuid=20b40970-6b10-404b-94f7-5c88febe0314}, StatusNotificationRequest{connectorId=2, errorCode=NoError, info=Waiting for electric vehicle connected, status=Preparing, timestamp="2022-02-14T10:58:20Z", vendorId=Circutor, vendorErrorCode=null, isValid=true}
+feb 14, 2022 11:58:23 A. M. padilla.ocpp.engine.impl.SessionHandler handleStatusNotificationRequest
+INFORMACIÓN: STATUS-NOTIFICATION.CONF => UUID{uuid=20b40970-6b10-404b-94f7-5c88febe0314}, StatusNotificationConfirmation{isValid=true}
+feb 14, 2022 11:58:23 A. M. padilla.ocpp.engine.impl.SessionHandler handleStatusNotificationRequest
+INFORMACIÓN: STATUS-NOTIFICATION.REQ => UUID{uuid=20b40970-6b10-404b-94f7-5c88febe0314}, StatusNotificationRequest{connectorId=1, errorCode=NoError, info=Waiting for electric vehicle connected, status=Preparing, timestamp="2022-02-14T10:58:20Z", vendorId=Circutor, vendorErrorCode=null, isValid=true}
+feb 14, 2022 11:58:23 A. M. padilla.ocpp.engine.impl.SessionHandler handleStatusNotificationRequest
+INFORMACIÓN: STATUS-NOTIFICATION.CONF => UUID{uuid=20b40970-6b10-404b-94f7-5c88febe0314}, StatusNotificationConfirmation{isValid=true}
+== Pide seleccionat toma...
+
+== Pasamos la otra tarjeta..
+feb 14, 2022 11:59:21 A. M. padilla.ocpp.engine.impl.SessionHandler handleHeartbeatRequest
+INFORMACIÓN: HEARTBEAT.REQ => UUID{uuid=20b40970-6b10-404b-94f7-5c88febe0314}, HeartbeatRequest{isValid=true}
+feb 14, 2022 11:59:21 A. M. padilla.ocpp.engine.impl.SessionHandler handleHeartbeatRequest
+INFORMACIÓN: HEARTBEAT.CONF => UUID{uuid=20b40970-6b10-404b-94f7-5c88febe0314}, HeartbeatConfirmation{currentTime="2022-02-14T11:59:21.636456235+01:00[Europe/Madrid]", isValid=true}
+== Pero no sale nada..
+
+
+== Pasa el tiempo.... y ....
+feb 14, 2022 11:59:52 A. M. padilla.ocpp.engine.impl.SessionHandler handleStatusNotificationRequest
+INFORMACIÓN: STATUS-NOTIFICATION.REQ => UUID{uuid=20b40970-6b10-404b-94f7-5c88febe0314}, StatusNotificationRequest{connectorId=1, errorCode=NoError, info=Available for new transaction, status=Available, timestamp="2022-02-14T10:59:50Z", vendorId=Circutor, vendorErrorCode=null, isValid=true}
+feb 14, 2022 11:59:52 A. M. padilla.ocpp.engine.impl.SessionHandler handleStatusNotificationRequest
+INFORMACIÓN: STATUS-NOTIFICATION.CONF => UUID{uuid=20b40970-6b10-404b-94f7-5c88febe0314}, StatusNotificationConfirmation{isValid=true}
+feb 14, 2022 11:59:52 A. M. padilla.ocpp.engine.impl.SessionHandler handleStatusNotificationRequest
+INFORMACIÓN: STATUS-NOTIFICATION.REQ => UUID{uuid=20b40970-6b10-404b-94f7-5c88febe0314}, StatusNotificationRequest{connectorId=2, errorCode=NoError, info=Available for new transaction, status=Available, timestamp="2022-02-14T10:59:50Z", vendorId=Circutor, vendorErrorCode=null, isValid=true}
+feb 14, 2022 11:59:52 A. M. padilla.ocpp.engine.impl.SessionHandler handleStatusNotificationRequest
+INFORMACIÓN: STATUS-NOTIFICATION.CONF => UUID{uuid=20b40970-6b10-404b-94f7-5c88febe0314}, StatusNotificationConfirmation{isValid=true}
+
+
+
+
+
+

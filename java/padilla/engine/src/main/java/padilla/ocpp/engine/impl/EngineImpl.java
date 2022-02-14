@@ -29,7 +29,12 @@ public class EngineImpl {
         serverCoreProfile = new ServerCoreProfile(serverCoreEventHandler);
         jsonServer = new JSONServer(serverCoreProfile);
         serverEvents = new ServerHandler(sessionDirectory);
-        jsonServer.open("localhost", 8887, serverEvents);
+        jsonServer.open(
+                parameters.serverAddressForListen(),
+                parameters.serverPorForListen(),
+                serverEvents
+        );
+
     }
 
     public void stop() {

@@ -8,7 +8,7 @@ public class SimpleConnector implements OcppConnector {
 
     @Override
     public List<String> getIdTagList() {
-        return List.of("11223344", "6677889900");
+        return List.of("4EF20EC9", "2EF20FC9");
     }
 
 }
