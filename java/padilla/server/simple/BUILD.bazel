@@ -1,7 +1,8 @@
 package(default_visibility = ["//visibility:public"])
+load("@bazel_tools//tools/build_defs/pkg:pkg.bzl", "pkg_tar")
 
 java_binary(
-    name = "example",
+    name = "simple-server",
     srcs = glob(["src/main/java/**/*.java"]),
     main_class = "padilla.ocpp.server.simple.SimpleServer",
     runtime_deps = [
@@ -12,4 +13,24 @@ java_binary(
         "//java/padilla/engine",
         "@maven//:org_slf4j_slf4j_api",
     ],
+)
+
+pkg_tar(
+    name = "simple-server-install",
+    extension = "tar.gz",
+    strip_prefix = "./src/main",
+    srcs = glob(["src/main/install/**"]),
+    mode = "0766"
+)
+
+pkg_tar(
+    name = "simple-server-deploy",
+    extension = "tar.gz",
+    strip_prefix = ".",
+    package_dir = "/ocpp-server",
+    srcs = [":simple-server_deploy.jar",],
+    deps = [
+        ":simple-server-install"
+    ],
+    mode = "0766"
 )

@@ -21,6 +21,7 @@ def ocpp_server_deps(IO_GRPC_GRPC_JAVA_ARTIFACTS, IO_GRPC_GRPC_JAVA_OVERRIDE_TAR
             "org.java-websocket:Java-WebSocket:1.5.1",
             "org.slf4j:slf4j-api:2.0.0-alpha1",
             "org.slf4j:slf4j-jdk14:2.0.0-alpha1",
+            "com.moandjiezana.toml:toml4j:0.7.2",
         ],
         generate_compat_repositories = True,
         override_targets = IO_GRPC_GRPC_JAVA_OVERRIDE_TARGETS,

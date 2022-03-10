@@ -1,0 +1,10 @@
+[Unit]
+Description=OCPP Server
+
+[Service]
+Type=forking
+ExecStart=/usr/local/ocpp-server/install/systemd/saltogateway start
+ExecStop=/usr/local/ocpp-server/install/systemd/saltogateway stop
+
+[Install]
+WantedBy=reboot.target

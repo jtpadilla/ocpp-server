@@ -6,7 +6,7 @@ public class SimpleParameters implements OcppParameters {
 
     @Override
     public String serverAddressForListen() {
-        return "150.128.120.133";
+        return "150.128.50.29";
     }
 
     @Override
