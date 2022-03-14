@@ -4,7 +4,7 @@ Description=OCPP Server
 [Service]
 User=root
 Type=forking
-ExecStart=/usr/local/ocpp-server/install/systemd/launch start
+ExecStart=/usr/local/ocpp-server/systemd/launch.sh start
 ExecStop=/bin/kill -15 $MAINPID
 
 [Install]
