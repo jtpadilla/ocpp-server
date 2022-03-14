@@ -4,24 +4,36 @@ import padilla.ocpp.engine.OcppParameters;
 
 public class SimpleParameters implements OcppParameters {
 
+    private String serverAddress;
+    private int serverPort;
+    private int heartBeatSeconds;
+    private boolean heartbeatLogDisabled;
+
+    public SimpleParameters(String serverAddress, int serverPort, int heartBeatSeconds, boolean heartbeatLogDisabled) {
+        this.serverAddress = serverAddress;
+        this.serverPort = serverPort;
+        this.heartBeatSeconds = heartBeatSeconds;
+        this.heartbeatLogDisabled = heartbeatLogDisabled;
+    }
+
     @Override
     public String serverAddressForListen() {
-        return "150.128.50.29";
+        return this.serverAddress;
     }
 
     @Override
     public int serverPorForListen() {
-        return 8887;
+        return this.serverPort;
     }
 
     @Override
     public int getHeartbeatSeconds() {
-        return 60;
+        return this.heartBeatSeconds;
     }
 
     @Override
     public boolean isHeartbeatLogDisabled() {
-        return false;
+        return this.heartbeatLogDisabled;
     }
 
 }
