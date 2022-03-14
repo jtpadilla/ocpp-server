@@ -8,6 +8,7 @@ import padilla.ocpp.engine.OcppEngine;
 import padilla.ocpp.engine.OcppParameters;
 
 import java.io.FileInputStream;
+import java.util.logging.LogManager;
 
 public class SimpleServer {
 
@@ -19,14 +20,15 @@ public class SimpleServer {
 
     public static void main(String[] args) {
 
-        logger.info(String.format("Iniciando '%s' con JavaRuntime %s.", APP_NAME, System.getProperty("java.version")));
-
         try {
-            // Obteniendo los parametros
-            OcppParameters parameters = new Toml().read(new FileInputStream(args[0])).to(SimpleParameters.class);
+            LogManager.getLogManager().readConfiguration(new FileInputStream(args[0]));
 
-            // Parametros y conector
-//            OcppParameters parameters = new SimpleParameters();
+            logger.info(String.format("Iniciando '%s' con JavaRuntime %s.", APP_NAME, System.getProperty("java.version")));
+
+            // Obteniendo los parametros
+            OcppParameters parameters = new Toml().read(new FileInputStream(args[1])).to(SimpleParameters.class);
+
+            // Obteniendo el conector
             OcppConnector connector = new SimpleConnector();
 
             // Se lanzan el servidor

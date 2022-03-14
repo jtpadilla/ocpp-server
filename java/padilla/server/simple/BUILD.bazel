@@ -19,7 +19,7 @@ java_binary(
 pkg_tar(
     name = "simple-server-install",
     extension = "tar.gz",
-    strip_prefix = "./src/main",
+    strip_prefix = "./src/main/install",
     srcs = glob(["src/main/install/**"]),
     mode = "0766"
 )
