@@ -21,13 +21,12 @@ public class SimpleServer {
     public static void main(String[] args) {
 
         try {
-//            LogManager.getLogManager().readConfiguration(new FileInputStream(args[0]));
+            LogManager.getLogManager().readConfiguration(new FileInputStream(args[0]));
 
             logger.info(String.format("Iniciando '%s' con JavaRuntime %s.", APP_NAME, System.getProperty("java.version")));
 
             // Obteniendo los parametros
-//            OcppParameters parameters = new Toml().read(new FileInputStream(args[1])).to(SimpleParameters.class);
-            OcppParameters parameters = new SimpleParameters("150.128.50.29", 8887, 60, false);
+            OcppParameters parameters = new Toml().read(new FileInputStream(args[1])).to(SimpleParameters.class);
 
             // Obteniendo el conector
             OcppConnector connector = new SimpleConnector();
