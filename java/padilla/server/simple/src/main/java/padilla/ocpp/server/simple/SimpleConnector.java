@@ -17,9 +17,4 @@ public class SimpleConnector implements OcppConnector {
         return this.idTags;
     }
 
-//    @Override
-//    public List<String> getIdTagList() {
-//        return List.of("4EF20EC9", "2EF20FC9");
-//    }
-
 }
