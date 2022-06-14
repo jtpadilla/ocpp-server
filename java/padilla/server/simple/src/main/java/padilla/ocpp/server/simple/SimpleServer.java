@@ -29,7 +29,7 @@ public class SimpleServer {
             OcppParameters parameters = new Toml().read(new FileInputStream(args[1])).to(SimpleParameters.class);
 
             // Obteniendo el conector
-            OcppConnector connector = new SimpleConnector();
+            OcppConnector connector = new Toml().read(new FileInputStream(args[2])).to(SimpleConnector.class);
 
             // Se lanzan el servidor
             OcppEngine.start(parameters, connector);
