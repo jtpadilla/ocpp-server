@@ -1,11 +1,14 @@
 [Unit]
 Description=OCPP Server
+After=syslog.target network.target
 
 [Service]
 User=root
-Type=forking
+Type=exec
+SuccessExitStatus=143
 ExecStart=/usr/local/ocpp-server/systemd/launch.sh start
 ExecStop=/bin/kill -15 $MAINPID
+TimeoutStopSec=10
 
 [Install]
 WantedBy=reboot.target
