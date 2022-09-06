@@ -1,0 +1,4 @@
+serverAddress = "150.128.50.29"
+serverPort = 8887
+heartBeatSeconds = 60
+heartbeatLogDisabled = false

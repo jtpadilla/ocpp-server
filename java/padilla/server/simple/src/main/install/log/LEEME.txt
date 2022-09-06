@@ -1,1 +1,0 @@
-Directorio donde se generaran los ficheros de log.

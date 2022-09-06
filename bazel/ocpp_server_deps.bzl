@@ -13,8 +13,8 @@ def ocpp_server_deps(IO_GRPC_GRPC_JAVA_ARTIFACTS, IO_GRPC_GRPC_JAVA_OVERRIDE_TAR
     maven_install(
         artifacts = IO_GRPC_GRPC_JAVA_ARTIFACTS + [
             "com.google.inject:guice:5.0.1",
-            #"eu.chargetime.ocpp:v1_6:1.0.1",
-            #"eu.chargetime.ocpp:common:1.0",
+            "eu.chargetime.ocpp:v1_6:1.0.1",
+            "eu.chargetime.ocpp:common:1.0",
             "javax.xml.bind:jaxb-api:2.1",
             "javax.xml.soap:javax.xml.soap-api:1.4.0",
             "com.google.code.gson:gson:2.8.0",

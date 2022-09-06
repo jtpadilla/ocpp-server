@@ -4,11 +4,13 @@ java_library(
     name = "ocpp",
     srcs = glob(["src/main/java/**/*.java"]),
     exports = [
-        "//java/ocpp/v1_6",
+        "@maven//:eu_chargetime_ocpp_v1_6",
+        "@maven//:eu_chargetime_ocpp_common",
         "//java/simulator/eu_chargetime/software",
     ],
     deps = [
-        "//java/ocpp/v1_6",
+        "@maven//:eu_chargetime_ocpp_v1_6",
+        "@maven//:eu_chargetime_ocpp_common",
         "//java/simulator/eu_chargetime/software",
     ],
 )

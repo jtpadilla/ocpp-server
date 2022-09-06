@@ -19,5 +19,3 @@ java_language_level: 17
 
 workspace_type: java
 
-import_run_configurations:
-  resources/launcher/t_all.xml
