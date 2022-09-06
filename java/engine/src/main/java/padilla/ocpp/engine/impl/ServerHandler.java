@@ -13,7 +13,7 @@ public class ServerHandler implements ServerEvents {
 
     final static private Logger logger = LoggerFactory.getLogger(ServerHandler.class);
 
-    final private padilla.ocpp.engine.impl.session.SessionDirectory sessionDirectory;
+    final private SessionDirectory sessionDirectory;
 
     public ServerHandler(SessionDirectory sessionDirectory) {
         this.sessionDirectory = sessionDirectory;

@@ -9,16 +9,198 @@ option java_outer_classname = "OcppDomainProto";
 
 package ocpp.common;
 
-enum DurationUnit {
-	DAYS = 0;
-	HOURS = 1;
-	MINUTES  = 2;
-	SECONDS  = 3;
-	MILLISECONDS = 4;
+message SessionIdMsg {
+	uint64 msb = 1;
+	uint64 lsb = 2;
 }
 
-message ExpirationMsg {
-	google.protobuf.Timestamp local_date_time = 1;
-	string zone_id = 2;
+message SessionInformationMsg {
+	string identifier = 1;
+	// Falta Incluir InetSocketAddressHolder
+	string soap_to_url = 3;
 }
 
+message BootNotificationRequestMsg {
+	string charge_point_vendor = 1;
+	string charge_point_model = 2;
+	string charge_point_serial_number = 3;
+	string firmware_version = 4;
+	string iccid = 5;
+	string imsi = 6;
+	string meter_serial_number = 7;
+	string meter_type = 8;
+}
+
+enum RegistrationStatusMsg {
+	ACCEPTED = 0;
+	PENDING = 1;
+	REJECTED  = 2;
+}
+message BootNotificationConfirmationMsg {
+	google.protobuf.Timestamp current_time = 1;
+	uint32 interval = 2;
+	RegistrationStatusMsg status = 3;
+}
+
+message HeartbeatRequestMsg {}
+
+message HeartbeatConfirmationMsg {
+	google.protobuf.Timestamp current_time = 1;
+}
+
+message AuthorizeRequestMsg {
+	string id_tag = 1;
+}
+
+enum AuthorizationStatusMsg {
+	AS_ACCEPTED = 0;
+	AS_BLOCKED = 1;
+	AS_EXPIRED = 2;
+	AS_INVALID = 3;
+	AS_CONCURRENTTX = 4;
+}
+
+message IdTagInfoMsg {
+	google.protobuf.Timestamp expiry_date = 1;
+	string parent_id_tag = 2;
+	AuthorizationStatusMsg status = 3;
+}
+
+message AuthorizeConfirmationMsg {
+	IdTagInfoMsg id_tag_info = 1;
+}
+
+message StartTransactionRequestMsg {
+	int32 connector_id = 1;
+	string id_tag = 2;
+	int32 meter_start = 3;
+	int32 reservation_id = 4;
+	google.protobuf.Timestamp timestamp = 5;
+}
+
+message StartTransactionConfirmationMsg {
+	IdTagInfoMsg id_tag_info = 1;
+	int32 transaction_id = 2;
+}
+
+enum ValueFormatMsg {
+		RAW = 0;
+		SIGNED_DATA = 1;
+}
+enum LocationMsg {
+		BODY = 0;
+		CABLE = 1;
+		EV = 2;
+		INLET = 3;
+		OUTLET = 4;
+}
+
+message SampledValueMsg {
+	string value = 1;
+	string context = 2;
+	ValueFormatMsg format = 3;
+	string measurand = 4;
+	string phase = 5;
+  LocationMsg location = 6;
+	string unit = 7;
+}
+
+message MeterValueMsg {
+	google.protobuf.Timestamp timestamp = 1;
+	repeated SampledValueMsg sampled_value = 2;
+}
+
+enum ReasonMsg {
+	EMERGENCY_STOP = 0;
+	EV_DISCONNECTED = 1;
+	HARD_RESET = 2;
+	LOCAL = 3;
+	OTHER = 4;
+	POWER_LOSS = 5;
+	REBOOT = 6;
+	REMOTE = 7;
+	SOFT_RESET = 8;
+	UNLOCK_COMMAND = 9;
+	DE_AUTHORIZED = 10;
+}
+
+message StopTransactionRequestMsg {
+	string id_tag = 1;
+	string meter_stop = 2;
+	google.protobuf.Timestamp timestamp = 3;
+	int32 transaction_id = 4;
+	ReasonMsg reason = 5;
+	repeated MeterValueMsg transaction_data = 6;
+}
+
+message StopTransactionConfirmationMsg {
+	IdTagInfoMsg id_tag_info = 1;
+}
+message DataTransferRequestMsg {
+	string vendor_id = 1;
+	string message_id = 2;
+	string data = 3;
+}
+
+enum DataTransferStatusMsg {
+	DT_ACCEPTED = 0;
+	DT_REJECTED = 1;
+	UNKNOWN_MESSAGE_ID = 2;
+	UNKNOWN_VENDOR_ID = 3;
+}
+
+message DataTransferConfirmationMsg {
+	DataTransferStatusMsg status = 1;
+	string data = 2;
+}
+
+message MeterValuesRequestMsg {
+	int32 connector_id = 1;
+	int32 transaction_id = 2;
+	repeated MeterValueMsg meter_value = 3;
+}
+
+message MeterValuesConfirmation {}
+
+enum ChargePointErrorCodeMsg {
+	CONNECTOR_LOCK_FAILURE = 0;
+	EV_COMMUNICATION_ERROR = 1;
+	GROUND_FAILURE = 2;
+	HIGH_TEMPERATURE = 3;
+	INTERNAL_ERROR = 4;
+	LOCAL_LIST_CONFLICT = 5;
+	NO_ERROR = 6;
+	OTHER_ERROR = 7;
+	OVER_CURRENT_FAILURE = 8;
+	OVER_VOLTAGE = 9;
+	POWER_METER_FAILURE = 10;
+	POWER_SWITCH_FAILURE = 11;
+	READER_FAILURE = 12;
+	RESET_FAILURE = 13;
+	UNDER_VOLTAGE = 14;
+	WEAK_SIGNAL = 15;
+}
+
+enum ChargePointStatusMsg {
+	AVAILABLE = 0;
+	PREPARING = 1;
+	CHARGING = 2;
+	SUSPENDED_EVSE = 3;
+	SUSPENDED_EV = 4;
+	FINISHING = 5;
+	RESERVED = 6;
+	UNAVAILABLE = 7;
+	FAULTED = 8;
+}
+
+message StatusNotificationRequestMsg {
+	int32 connector_id = 1;
+	ChargePointErrorCodeMsg error_code = 2;
+	string info = 3;
+	ChargePointStatusMsg status = 4;
+	google.protobuf.Timestamp timestamp = 5;
+	string vendor_id = 6;
+	string vendor_error_code = 7;
+}
+
+message StatusNotificationConfirmationMsg {}
