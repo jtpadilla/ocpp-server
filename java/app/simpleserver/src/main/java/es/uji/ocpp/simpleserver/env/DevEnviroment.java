@@ -22,6 +22,13 @@ java.util.logging.ConsoleHandler.formatter = java.util.logging.SimpleFormatter
     """;
 
     String PARAMETERS_STR = """
+serverAddress = "150.128.120.133"
+serverPort = 8887
+heartBeatSeconds = 60
+heartbeatLogDisabled = false
+    """;
+
+    String PARAMETERS_STR_OLD = """
 serverAddress = "150.128.50.29"
 serverPort = 8887
 heartBeatSeconds = 60
