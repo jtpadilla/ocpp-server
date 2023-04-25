@@ -1,0 +1,38 @@
+package(default_visibility = ["//visibility:public"])
+
+load("@rules_pkg//:pkg.bzl", "pkg_tar")
+
+java_binary(
+    name = "simpleserver",
+    srcs = glob(["src/main/java/**/*.java"]),
+    main_class = "es.uji.ocpp.simpleserver.Launcher",
+    runtime_deps = [
+        "@maven//:org_slf4j_slf4j_api",
+        "@maven//:org_slf4j_slf4j_jdk14",
+    ],
+    deps = [
+        "//java/engine",
+        "@maven//:com_moandjiezana_toml_toml4j",
+        "@maven//:org_slf4j_slf4j_api",
+    ],
+)
+
+pkg_tar(
+    name = "engine-install",
+    srcs = glob(["src/main/install/**"]),
+    extension = "tar.gz",
+    mode = "0766",
+    strip_prefix = "./src/main/install",
+)
+
+pkg_tar(
+    name = "engine-deploy",
+    srcs = [":engine-launcher_deploy.jar"],
+    extension = "tar.gz",
+    mode = "0766",
+    package_dir = "/ocpp-engine",
+    strip_prefix = ".",
+    deps = [
+        ":engine-install",
+    ],
+)

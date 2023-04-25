@@ -1,4 +1,0 @@
-serverAddress = "localhost"
-serverPort = 8887
-heartBeatSeconds = 60
-heartbeatLogDisabled = false

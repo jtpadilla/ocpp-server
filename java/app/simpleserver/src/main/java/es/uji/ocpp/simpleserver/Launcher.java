@@ -1,20 +1,20 @@
-package padilla.ocpp.engine.old.launcher;
+package es.uji.ocpp.simpleserver;
 
 import com.moandjiezana.toml.Toml;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import padilla.ocpp.engine.old.OcppConnector;
-import padilla.ocpp.engine.old.OcppEngine;
-import padilla.ocpp.engine.old.OcppParameters;
+import padilla.ocpp.engine.OcppConnector;
+import padilla.ocpp.engine.OcppEngine;
+import padilla.ocpp.engine.OcppParameters;
 
 import java.io.FileInputStream;
 import java.util.logging.LogManager;
 
-public class EngineLauncher {
+public class Launcher {
 
     final static private String APP_NAME = "OCPP Engine";
 
-    final static private Logger logger = LoggerFactory.getLogger(EngineLauncher.class);
+    final static private Logger logger = LoggerFactory.getLogger(Launcher.class);
 
     static private boolean finishServer = false;
 
@@ -43,9 +43,9 @@ public class EngineLauncher {
                 OcppEngine.stop();
 
                 // Se despierta el thread principal para que evalue si tiene que parar
-                synchronized (EngineLauncher.class) {
+                synchronized (Launcher.class) {
                     finishServer = true;
-                    EngineLauncher.class.notifyAll();
+                    Launcher.class.notifyAll();
                 }
 
             }));
@@ -54,9 +54,9 @@ public class EngineLauncher {
             logger.info("El servidor se ha iniciado correctamente y ahora el thread principal entra en espera...");
 
             while (!finishServer) {
-                synchronized (EngineLauncher.class) {
+                synchronized (Launcher.class) {
                     try {
-                        EngineLauncher.class.wait(5000);
+                        Launcher.class.wait(5000);
                     } catch (InterruptedException e) {
                     }
                 }

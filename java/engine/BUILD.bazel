@@ -1,53 +1,18 @@
 package(default_visibility = ["//visibility:public"])
+
 load("@rules_pkg//:pkg.bzl", "pkg_tar")
 
 java_library(
     name = "engine",
     srcs = glob(["src/main/java/**/*.java"]),
     exports = [
-        "@maven//:eu_chargetime_ocpp_v1_6",
         "@maven//:eu_chargetime_ocpp_common",
-    ],
-    deps = [
         "@maven//:eu_chargetime_ocpp_v1_6",
+    ],
+    deps = [
+        "@maven//:com_moandjiezana_toml_toml4j",
         "@maven//:eu_chargetime_ocpp_common",
+        "@maven//:eu_chargetime_ocpp_v1_6",
         "@maven//:org_slf4j_slf4j_api",
-        "@maven//:com_moandjiezana_toml_toml4j",
     ],
 )
-
-java_binary(
-    name = "engine-launcher",
-    srcs = glob(["src/main/java/**/*.java"]),
-    main_class = "padilla.ocpp.engine.launcher.EngineLauncher",
-    runtime_deps = [
-        "@maven//:org_slf4j_slf4j_api",
-        "@maven//:org_slf4j_slf4j_jdk14",
-    ],
-    deps = [
-        ":engine",
-        "@maven//:org_slf4j_slf4j_api",
-        "@maven//:com_moandjiezana_toml_toml4j",
-    ],
-)
-
-pkg_tar(
-    name = "engine-install",
-    extension = "tar.gz",
-    strip_prefix = "./src/main/install",
-    srcs = glob(["src/main/install/**"]),
-    mode = "0766"
-)
-
-pkg_tar(
-    name = "engine-deploy",
-    extension = "tar.gz",
-    strip_prefix = ".",
-    package_dir = "/ocpp-engine",
-    srcs = [":engine-launcher_deploy.jar",],
-    deps = [
-        ":engine-install"
-    ],
-    mode = "0766"
-)
-

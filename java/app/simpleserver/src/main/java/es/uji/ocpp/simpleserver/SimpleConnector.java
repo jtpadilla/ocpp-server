@@ -1,6 +1,6 @@
-package padilla.ocpp.engine.old.launcher;
+package es.uji.ocpp.simpleserver;
 
-import padilla.ocpp.engine.old.OcppConnector;
+import padilla.ocpp.engine.OcppConnector;
 
 import java.util.List;
 

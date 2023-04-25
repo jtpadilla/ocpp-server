@@ -1,6 +1,6 @@
-package padilla.ocpp.engine.old.launcher;
+package es.uji.ocpp.simpleserver;
 
-import padilla.ocpp.engine.old.OcppParameters;
+import padilla.ocpp.engine.OcppParameters;
 
 public class SimpleParameters implements OcppParameters {
 
