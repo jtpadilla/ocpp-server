@@ -27,7 +27,7 @@ pkg_tar(
 
 pkg_tar(
     name = "engine-deploy",
-    srcs = [":engine-launcher_deploy.jar"],
+    srcs = [":simpleserver_deploy.jar"],
     extension = "tar.gz",
     mode = "0766",
     package_dir = "/ocpp-engine",
