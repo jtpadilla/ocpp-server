@@ -1,6 +1,5 @@
 package es.uji.ocpp.simpleserver;
 
-import com.moandjiezana.toml.Toml;
 import es.uji.ocpp.simpleserver.env.Enviroment;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -8,7 +7,6 @@ import padilla.ocpp.engine.OcppConnector;
 import padilla.ocpp.engine.OcppEngine;
 import padilla.ocpp.engine.OcppParameters;
 
-import java.io.FileInputStream;
 import java.util.logging.LogManager;
 
 public class Launcher {
@@ -22,14 +20,16 @@ public class Launcher {
     public static void main(String[] args) {
 
         try {
-            // Log
-            LogManager.getLogManager().readConfiguration(new FileInputStream(args[0]));
-            logger.info(String.format("Iniciando '%s' con JavaRuntime %s.", APP_NAME, System.getProperty("java.version")));
-
             // Enviroment
             final IEnviromentFactory factory = Enviroment.getFactory(args);
+
+            // Log
+            LogManager.getLogManager().readConfiguration(factory.logConfiguration());
             final OcppParameters parameters = factory.parameters();
             final OcppConnector connector = factory.connector();
+
+            // Info java
+            logger.info(String.format("Iniciando '%s' con JavaRuntime %s.", APP_NAME, System.getProperty("java.version")));
 
             // Se lanzan el servidor
             OcppEngine.start(parameters, connector);

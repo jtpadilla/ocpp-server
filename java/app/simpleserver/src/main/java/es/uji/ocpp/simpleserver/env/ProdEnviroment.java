@@ -9,6 +9,7 @@ import padilla.ocpp.engine.OcppParameters;
 
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.InputStream;
 
 public class ProdEnviroment implements IEnviromentFactory {
 
@@ -16,6 +17,11 @@ public class ProdEnviroment implements IEnviromentFactory {
 
     public ProdEnviroment(String[] args) {
         this.args = args;
+    }
+
+    @Override
+    public InputStream logConfiguration() throws IOException {
+        return new FileInputStream(args[0]);
     }
 
     @Override

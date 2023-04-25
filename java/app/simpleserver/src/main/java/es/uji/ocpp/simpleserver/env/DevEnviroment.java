@@ -9,8 +9,17 @@ import padilla.ocpp.engine.OcppParameters;
 
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
+import java.io.InputStream;
 
 public class DevEnviroment implements IEnviromentFactory {
+
+    String LOG_CONFIGURATION_STR = """
+handlers = java.util.logging.FileHandler, java.util.logging.ConsoleHandler
+java.util.logging.SimpleFormatter.format=[%1$tF %1$tT] [%4$-7s] %5$s %6$s%n
+
+java.util.logging.ConsoleHandler.level = ALL
+java.util.logging.ConsoleHandler.formatter = java.util.logging.SimpleFormatter
+    """;
 
     String PARAMETERS_STR = """
 serverAddress = "150.128.50.29"
@@ -59,6 +68,11 @@ idTags = [
 
     public DevEnviroment(String[] args) {
         this.args = args;
+    }
+
+    @Override
+    public InputStream logConfiguration() throws IOException {
+        return new ByteArrayInputStream(LOG_CONFIGURATION_STR.getBytes());
     }
 
     @Override
