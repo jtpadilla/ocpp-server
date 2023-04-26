@@ -36,40 +36,42 @@ heartbeatLogDisabled = false
     """;
 
     String CONNECTOR_STR = """
-idTags = [
-    "4EF20EC9",
-    "2EF20FC9",
-    "FEEF0EC9",
-    "1E2C16C9",
-    "CEEC0EC9",
-    "7E3723C9",
-    "4EF60FC9",
-    "6EB601C9",
-    "DEFFFDC8",
-    "EE2D16C9",
-    "0E970FC9",
-    "7EA921C9",
-    "4EB325C9",
-    "8E0A18C9",
-    "DEFAFDC8",
-    "64D44563",
-    "141F3463",
-    "64AF2763",
-    "24343463",
-    "C4BD1B63",
-    "849B0063",
-    "D4485563",
-    "74240163",
-    "74D00663",
-    "C4CD3863",
-    "74B20663",
-    "777B77B4", # Tarjeta Moises (Monrabal)
-    "EA3E0D5D", # Reloj Antonio (Monrabal)
-    "FE903000", # Tadeo
-    "BE6024B2", # Juan
-    "6E4E18C9"  # Alejandro
-]
-    """;
+            idTags = [
+                "4EF20EC9",
+                "2EF20FC9",
+                "FEEF0EC9",
+                "1E2C16C9",
+                "CEEC0EC9",
+                "7E3723C9",
+                "4EF60FC9",
+                "6EB601C9",
+                "DEFFFDC8",
+                "EE2D16C9",
+                "0E970FC9",
+                "7EA921C9",
+                "4EB325C9",
+                "8E0A18C9",
+                "DEFAFDC8",
+                "64D44563",
+                "141F3463",
+                "64AF2763",
+                "24343463",
+                "C4BD1B63",
+                "849B0063",
+                "D4485563",
+                "74240163",
+                "74D00663",
+                "C4CD3863",
+                "74B20663",
+                "777B77B4", # Tarjeta Moises (Monrabal)
+                "EA3E0D5D", # Reloj Antonio (Monrabal)
+                "ACE4555F", # Tarjeta de rcapdevi (Monrabal)
+                "FC89D215", # Tarjeta de edlopez (Monrabal)
+                "FE903000", # Tadeo
+                "BE6024B2", # Juan
+                "6E4E18C9"  # Alejandro
+            ]
+                """;
 
     final private String[] args;
 
