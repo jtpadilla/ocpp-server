@@ -19,3 +19,20 @@ java_binary(
         "@maven//:org_slf4j_slf4j_api",
     ],
 )
+
+java_binary(
+    name = "serverstresstest",
+    srcs = glob([
+        "src/main/java/websocket/example/ServerStressTest.java",
+    ]),
+    main_class = "websocket.example.ServerStressTest",
+    runtime_deps = [
+        "@maven//:org_slf4j_slf4j_api",
+        "@maven//:org_slf4j_slf4j_jdk14",
+    ],
+    deps = [
+        "@maven//:javax_xml_bind_jaxb_api",
+        "@maven//:org_java_websocket_Java_WebSocket",
+        "@maven//:org_slf4j_slf4j_api",
+    ],
+)
