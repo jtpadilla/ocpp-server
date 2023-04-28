@@ -6,7 +6,7 @@ java_binary(
     name = "chatserver",
     srcs = glob([
         "src/main/java/websocket/example/ChatServer.java",
-        "src/main/java/websocket/example/ChatSimple.java",
+        "src/main/java/websocket/example/ChatServerSimple.java",
     ]),
     main_class = "websocket.example.ChatServerSimple",
     runtime_deps = [
