@@ -37,3 +37,21 @@ java_binary(
         "@maven//:org_slf4j_slf4j_api",
     ],
 )
+
+java_binary(
+    name = "chatserverattachmentexample",
+    srcs = glob([
+        "src/main/java/websocket/example/ChatServerAttachment.java",
+        "src/main/java/websocket/example/ChatServerAttachmentExample.java",
+    ]),
+    main_class = "websocket.example.ChatServerAttachmentExample",
+    runtime_deps = [
+        "@maven//:org_slf4j_slf4j_api",
+        "@maven//:org_slf4j_slf4j_jdk14",
+    ],
+    deps = [
+        "@maven//:javax_xml_bind_jaxb_api",
+        "@maven//:org_java_websocket_Java_WebSocket",
+        "@maven//:org_slf4j_slf4j_api",
+    ],
+)
