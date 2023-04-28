@@ -23,6 +23,7 @@ java_binary(
 java_binary(
     name = "serverstresstest",
     srcs = glob([
+        "src/main/java/websocket/example/ExampleClient.java",
         "src/main/java/websocket/example/ServerStressTest.java",
     ]),
     main_class = "websocket.example.ServerStressTest",
