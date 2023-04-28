@@ -17,7 +17,7 @@ public class ChatServerSimple {
 
     public static void main(String[] args) throws InterruptedException, IOException {
 
-        WebSocketServer webSocketServer = new ChatServer();
+        WebSocketServer webSocketServer = new ChatServer(8887);
         webSocketServer.start();
         System.out.println("websocket.example.ChatServer started on port: " + webSocketServer.getPort());
 

@@ -1,19 +1,30 @@
 package websocket.example;
 
 import org.java_websocket.WebSocket;
+import org.java_websocket.drafts.Draft;
+import org.java_websocket.drafts.Draft_6455;
 import org.java_websocket.handshake.ClientHandshake;
 import org.java_websocket.server.WebSocketServer;
 
 import java.net.InetSocketAddress;
 import java.nio.ByteBuffer;
+import java.util.Collections;
 
 /**
  * A simple WebSocketServer implementation. Keeps track of a "chatroom".
  */
 public class ChatServer extends WebSocketServer {
 
-    public ChatServer() {
-        super(new InetSocketAddress(8887));
+    public ChatServer(int port) {
+        super(new InetSocketAddress(port));
+    }
+
+    public ChatServer(InetSocketAddress address) {
+        super(address);
+    }
+
+    public ChatServer(int port, Draft_6455 draft) {
+        super(new InetSocketAddress(port), Collections.<Draft>singletonList(draft));
     }
 
     @Override
