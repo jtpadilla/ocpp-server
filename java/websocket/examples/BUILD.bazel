@@ -55,3 +55,21 @@ java_binary(
         "@maven//:org_slf4j_slf4j_api",
     ],
 )
+
+java_binary(
+    name = "custom-header-client-example",
+    srcs = glob([
+        "src/main/java/websocket/example/ExampleClient.java",
+        "src/main/java/websocket/example/CustomHeaderClientExample.java",
+    ]),
+    main_class = "websocket.example.CustomHeaderClientExample",
+    runtime_deps = [
+        "@maven//:org_slf4j_slf4j_api",
+        "@maven//:org_slf4j_slf4j_jdk14",
+    ],
+    deps = [
+        "@maven//:javax_xml_bind_jaxb_api",
+        "@maven//:org_java_websocket_Java_WebSocket",
+        "@maven//:org_slf4j_slf4j_api",
+    ],
+)
