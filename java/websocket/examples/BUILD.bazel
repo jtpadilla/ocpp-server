@@ -4,8 +4,11 @@ load("@rules_pkg//:pkg.bzl", "pkg_tar")
 
 java_binary(
     name = "chatserver",
-    srcs = glob(["src/main/java/websocket/example/ChatServer.java"]),
-    main_class = "websocket.example.ChatServer",
+    srcs = glob([
+        "src/main/java/websocket/example/ChatServer.java",
+        "src/main/java/websocket/example/ChatSimple.java",
+    ]),
+    main_class = "websocket.example.ChatServerSimple",
     runtime_deps = [
         "@maven//:org_slf4j_slf4j_api",
         "@maven//:org_slf4j_slf4j_jdk14",
