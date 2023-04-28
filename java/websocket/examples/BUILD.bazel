@@ -1,0 +1,18 @@
+package(default_visibility = ["//visibility:public"])
+
+load("@rules_pkg//:pkg.bzl", "pkg_tar")
+
+java_binary(
+    name = "chatserver",
+    srcs = glob(["src/main/java/websocket/example/ChatServer.java"]),
+    main_class = "websocket.example.ChatServer",
+    runtime_deps = [
+        "@maven//:org_slf4j_slf4j_api",
+        "@maven//:org_slf4j_slf4j_jdk14",
+    ],
+    deps = [
+        "@maven//:javax_xml_bind_jaxb_api",
+        "@maven//:org_java_websocket_Java_WebSocket",
+        "@maven//:org_slf4j_slf4j_api",
+    ],
+)
