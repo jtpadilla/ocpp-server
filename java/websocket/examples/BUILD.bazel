@@ -6,9 +6,9 @@ java_binary(
     name = "chatserver",
     srcs = glob([
         "src/main/java/websocket/example/ChatServer.java",
-        "src/main/java/websocket/example/ChatServerSimple.java",
+        "src/main/java/websocket/example/ChatServerExample.java",
     ]),
-    main_class = "websocket.example.ChatServerSimple",
+    main_class = "websocket.example.ChatServerExample",
     runtime_deps = [
         "@maven//:org_slf4j_slf4j_api",
         "@maven//:org_slf4j_slf4j_jdk14",

@@ -6,7 +6,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
-public class ChatServerSimple {
+public class ChatServerExample {
 
     public static void main(String[] args) throws InterruptedException, IOException {
 
