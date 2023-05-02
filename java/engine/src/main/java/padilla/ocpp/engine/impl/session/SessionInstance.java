@@ -89,7 +89,7 @@ public class SessionInstance {
     //////////////////////////////////////////////////
 
     private void touch() {
-        this.touched = ZonedDateTime.now();
+        this.touched = ZonedDateTime.now().plusHours(12);
     }
 
     private IdTagInfo buildAcceptedTagInfo() {
