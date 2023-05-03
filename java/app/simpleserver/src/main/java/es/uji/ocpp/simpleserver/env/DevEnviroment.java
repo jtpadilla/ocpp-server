@@ -81,9 +81,20 @@ heartbeatLogDisabled = false
                 "EA3E0D5D", # Reloj Antonio (Monrabal)
                 "ACE4555F", # Tarjeta de rcapdevi (Monrabal)
                 "FC89D215", # Tarjeta de edlopez (Monrabal)
-                "FE903000", # Tadeo
-                "BE6024B2", # Juan
-                "6E4E18C9"  # Alejandro
+                "FE903000", # Tarjeta de Tadeo
+                "BE6024B2", # Tarjeta de Juan
+                "6E4E18C9",  # Tarjeta de Alejandro
+                "0E:93:1E:10", # Tarjeta de joandres (Veolia)
+                "EB:65:A6:52", # Tarjeta de jparra (Veolia)
+                "56:7C:AD:94", # Tarjeta de cardav (Veolia)
+                "FE:B2:1E:B2", # Tarjeta de mella (Veolia)
+                "D7:FA:82:B4", # Tarjeta de cjulve (Veolia)
+                "77:FB:82:B4", # Tarjeta de egil (Veolia)
+                "BE:A5:13:B2", # Tarjeta de sanchezy (Veolia)
+                "90:B3:80:2B", # Tarjeta de ferruses (Veolia)
+                "D4:C7:AA:B9", # Tarjeta de karanfil (Veolia)
+                "57:58:7D:B4", # Tarjeta de jegracia (Veolia)
+                "D7:CF:7F:B4", # Tarjeta de mosquera (Veolia)
             ]
                 """;
 
