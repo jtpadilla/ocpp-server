@@ -1,6 +1,6 @@
 [Unit]
 Description=OCPP Engine
-After=syslog.target network.target
+After=syslog.target network.target network-online.target
 
 [Service]
 User=root
